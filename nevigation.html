@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vala Construction</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            list-style: none;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #fff;
+        }
+
+        /* NAVBAR */
+        header {
+            position: fixed;
+            top: 15px;
+            left: 20px;
+            width: calc(100% - 40px);
+            height: 60px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 0 35px;
+            z-index: 1000;
+
+            border-radius: 20px;
+            transition: all 0.4s ease;
+        }
+
+        /* PREMIUM TRANSLUCENT GLASS EFFECT */
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+
+            border: 1px solid rgba(255, 255, 255, 0.12);
+
+            box-shadow:
+                0 8px 30px rgba(0, 0, 0, 0.06);
+        }
+
+        /* LOGO */
+        .logo img {
+            width: 145px;
+            height: 145px;
+            object-fit: contain;
+            transition: 0.3s;
+        }
+
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+
+        /* NAVIGATION */
+        nav ul {
+            display: flex;
+            align-items: center;
+            gap: 45px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #d8b38a;
+        }
+
+        /* HERO */
+        .hero {
+            height: 100vh;
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.25),
+                    rgba(0, 0, 0, 0.25)),
+                url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1800")
+                center center/cover no-repeat;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero h1 {
+            color: white;
+            font-size: 80px;
+            letter-spacing: 4px;
+            font-weight: 800;
+        }
+
+        /* CONTENT */
+        .section {
+            padding: 120px 10%;
+        }
+
+        .section h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: #222;
+        }
+
+        .section p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #555;
+            max-width: 800px;
+        }
+
+        @media (max-width: 768px) {
+
+            header {
+                padding: 0 20px;
+            }
+
+            .logo img {
+                width: 115px;
+                height: 115px;
+            }
+
+            nav ul {
+                gap: 18px;
+            }
+
+            nav ul li a {
+                font-size: 11px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="navbar">
+
+        <a href="#" class="logo">
+            <img src="logo.png" alt="Vala Construction Logo">
+        </a>
+
+        <nav>
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">PROJECTS</a></li>
+                <li><a href="#">CONTACT</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <section class="hero">
+        <h1>VALA CONSTRUCTION</h1>
+    </section>
+
+    <section class="section">
+        <h2>About Us</h2>
+        <p>
+            We deliver premium residential and commercial construction
+            projects with a focus on quality, innovation, and timeless design.
+        </p>
+    </section>
+
+    <section class="section">
+        <h2>Our Projects</h2>
+        <p>
+            From luxury villas to modern commercial developments,
+            we build spaces that combine functionality, durability,
+            and architectural excellence.
+        </p>
+    </section>
+
+    <script>
+        const navbar = document.getElementById("navbar");
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
+        });
+    </script>
+
+</body>
+
+</html>

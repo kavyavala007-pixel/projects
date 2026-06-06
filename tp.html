@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vala Projects</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#0a0a0a;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* HERO */
+
+.hero{
+    position:relative;
+    height:100vh;
+    overflow:hidden;
+}
+
+.hero-image{
+    position:absolute;
+    inset:0;
+    background:
+    linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.65)),
+    url("https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=2500&q=80");
+    background-size:cover;
+    background-position:center;
+    will-change:transform;
+}
+
+.hero-content{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    text-align:center;
+    z-index:10;
+    width:90%;
+}
+
+.hero-content h1{
+    font-size:clamp(60px,10vw,150px);
+    line-height:.9;
+    font-weight:900;
+    text-transform:uppercase;
+}
+
+.hero-content p{
+    margin-top:25px;
+    font-size:22px;
+    color:#ddd;
+}
+
+.scroll-text{
+    position:absolute;
+    bottom:40px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:20;
+    letter-spacing:4px;
+    font-size:13px;
+    color:#d4af37;
+}
+
+/* ABOUT */
+
+.about{
+    position:relative;
+    min-height:150vh;
+    overflow:hidden;
+}
+
+.about-image{
+    position:absolute;
+    top:-20%;
+    left:0;
+    width:100%;
+    height:160%;
+    background:
+    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.75)),
+    url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2500&q=80");
+    background-size:cover;
+    background-position:center;
+}
+
+.glass-card{
+    position:relative;
+    z-index:5;
+
+    width:min(850px,90%);
+    margin:auto;
+    top:250px;
+
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    padding:60px;
+    border-radius:35px;
+}
+
+.glass-card span{
+    color:#d4af37;
+    letter-spacing:5px;
+    font-size:13px;
+    font-weight:700;
+}
+
+.glass-card h2{
+    font-size:70px;
+    line-height:1;
+    margin:20px 0;
+}
+
+.glass-card p{
+    color:#e0e0e0;
+    line-height:2;
+    font-size:18px;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:16px 40px;
+    background:#d4af37;
+    color:black;
+    text-decoration:none;
+    border-radius:50px;
+    font-weight:700;
+}
+
+/* IMAGE STRIP */
+
+.image-strip{
+    padding:180px 7%;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+}
+
+.image-box{
+    position:relative;
+    overflow:hidden;
+    border-radius:30px;
+}
+
+.image-box img{
+    width:100%;
+    height:650px;
+    object-fit:cover;
+    transition:1s;
+}
+
+.image-box:hover img{
+    transform:scale(1.08);
+}
+
+.image-overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+    transparent,
+    rgba(0,0,0,.8)
+    );
+}
+
+.image-title{
+    position:absolute;
+    bottom:30px;
+    left:30px;
+    font-size:40px;
+    font-weight:700;
+}
+.image-title{
+    position:absolute;
+    bottom:30px;
+    left:30px;
+    font-size:40px;
+    font-weight:700;
+}
+
+/* STATS */
+
+.stats{
+    padding:120px 8%;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.stat{
+    background:#111;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:30px;
+    padding:50px;
+    text-align:center;
+    transition:.4s;
+}
+
+.stat:hover{
+    transform:translateY(-10px);
+}
+
+.stat h3{
+    font-size:60px;
+    color:#d4af37;
+}
+
+.stat p{
+    margin-top:10px;
+    color:#bbb;
+}
+
+/* CTA */
+
+.cta{
+    position:relative;
+    height:90vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    overflow:hidden;
+}
+
+.cta-bg{
+    position:absolute;
+    inset:0;
+    background:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.7)),
+    url("https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=2500&q=80");
+    background-size:cover;
+    background-position:center;
+}
+
+.cta-content{
+    position:relative;
+    z-index:2;
+    width:min(1000px,90%);
+}
+
+.cta-content h2{
+    font-size:80px;
+    line-height:1;
+}
+
+.cta-content p{
+    margin-top:20px;
+    color:#ddd;
+    font-size:20px;
+}
+
+footer{
+    background:#050505;
+    padding:80px 20px;
+    text-align:center;
+}
+
+footer h2{
+    font-size:40px;
+}
+
+footer p{
+    color:#888;
+    margin-top:10px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    .glass-card{
+        padding:35px;
+    }
+
+    .glass-card h2{
+        font-size:42px;
+    }
+
+    .image-strip{
+        grid-template-columns:1fr;
+    }
+
+    .image-box img{
+        height:400px;
+    }
+
+    .hero-content h1{
+        font-size:60px;
+    }
+
+    .cta-content h2{
+        font-size:45px;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+
+    <div class="hero-image"></div>
+
+    <div class="hero-content">
+
+        <h1>
+            VALA<br>
+            PROJECTS
+        </h1>
+
+        <p>
+            Building spaces that inspire future generations.
+        </p>
+
+    </div>
+
+    <div class="scroll-text">
+        SCROLL DOWN
+    </div>
+
+</section>
+
+<section class="about">
+
+    <div class="about-image"></div>
+
+    <div class="glass-card">
+
+        <span>ABOUT US</span>
+
+        <h2>
+            We Create
+            Extraordinary
+            Spaces
+        </h2>
+
+        <p>
+            Vala Projects combines architecture,
+            engineering and innovation to build
+            landmarks that define skylines and
+            inspire communities.
+        </p>
+
+        <a href="#" class="btn">
+            Discover More
+        </a>
+
+    </div>
+
+</section>
+
+<section class="image-strip">
+
+    <div class="image-box">
+
+        <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=2000&q=80">
+
+        <div class="image-overlay"></div>
+
+        <div class="image-title">
+            Luxury Living
+        </div>
+
+    </div>
+
+    <div class="image-box">
+
+        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=2000&q=80">
+
+        <div class="image-overlay"></div>
+
+        <div class="image-title">
+            Modern Design
+        </div>
+
+    </div>
+
+</section>
+
+<section class="stats">
+
+    <div class="stat">
+        <h3>120+</h3>
+        <p>Projects Completed</p>
+    </div>
+
+    <div class="stat">
+        <h3>15+</h3>
+        <p>Years Experience</p>
+    </div>
+
+    <div class="stat">
+        <h3>50+</h3>
+        <p>Expert Engineers</p>
+    </div>
+
+    <div class="stat">
+        <h3>100%</h3>
+        <p>Client Satisfaction</p>
+    </div>
+
+</section>
+<section class="cta">
+
+    <div class="cta-bg"></div>
+
+    <div class="cta-content">
+
+        <h2>
+            Let's Build
+            Something Extraordinary
+        </h2>
+
+        <p>
+            Transforming ideas into iconic spaces through
+            innovation, precision and world-class execution.
+        </p>
+
+        <a href="#" class="btn">
+            Start Your Project
+        </a>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <h2>VALA PROJECTS</h2>
+
+    <p>
+        Construction • Architecture • Engineering
+    </p>
+
+</footer>
+
+<script>
+
+/* HERO PARALLAX */
+
+const heroImage = document.querySelector('.hero-image');
+const aboutImage = document.querySelector('.about-image');
+const glassCard = document.querySelector('.glass-card');
+const ctaBg = document.querySelector('.cta-bg');
+
+window.addEventListener('scroll', () => {
+
+    let scrollY = window.pageYOffset;
+
+    /* Hero image moves slower */
+
+    heroImage.style.transform =
+        `translateY(${scrollY * 0.3}px) scale(${1 + scrollY * 0.0002})`;
+
+    /* About image moves very slowly */
+
+    aboutImage.style.transform =
+        `translateY(${scrollY * 0.15}px)`;
+
+    /* Glass card moves faster */
+
+    glassCard.style.transform =
+        `translateY(${-scrollY * 0.08}px)`;
+
+    /* CTA image */
+
+    ctaBg.style.transform =
+        `translateY(${scrollY * 0.05}px) scale(1.05)`;
+
+});
+
+
+/* REVEAL ANIMATION */
+
+const revealElements = document.querySelectorAll(
+'.glass-card,.image-box,.stat,.cta-content'
+);
+
+const observer = new IntersectionObserver((entries)=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.style.opacity='1';
+            entry.target.style.transform='translateY(0px)';
+
+        }
+
+    });
+
+},{
+    threshold:0.2
+});
+
+revealElements.forEach(el=>{
+
+    el.style.opacity='0';
+    el.style.transform='translateY(80px)';
+    el.style.transition='1s ease';
+
+    observer.observe(el);
+
+});
+
+</script>
+
+</body>
+</html>

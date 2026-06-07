@@ -1,94 +1,180 @@
 /* =====================================
    NAVBAR
 ===================================== */
+/* =====================================
+   RESET
+===================================== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-header{
+body{
+    font-family:Arial, sans-serif;
+    overflow-x:hidden;
+}
+
+/* =====================================
+   NAVBAR
+===================================== */
+#navbar{
     position:fixed;
     top:15px;
     left:20px;
-    width:calc(100% - 40px);
-    height:70px;
+    right:20px;
+
+    height:55px;
 
     display:flex;
     justify-content:space-between;
     align-items:center;
 
-    padding:0 35px;
-    z-index:9999;
+    padding:0 20px;
 
-    border-radius:22px;
-    transition:.4s ease;
+    z-index:9999;
 }
 
-header.scrolled{
-    background:rgba(255,255,255,0.06);
-    backdrop-filter:blur(24px);
-    -webkit-backdrop-filter:blur(24px);
+/* =====================================
+   GLASS BACKGROUND LAYER
+   Hidden initially
+===================================== */
+#navbar::before{
+    content:"";
 
-    border:1px solid rgba(255,255,255,.12);
+    position:absolute;
+    inset:0;
 
-    box-shadow:
-    0 10px 40px rgba(0,0,0,.15);
+    border-radius:22px;
+
+    background:rgba(255,255,255,0.15);
+
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,0.25);
+
+    box-shadow:0 8px 32px rgba(0,0,0,0.12);
+
+    opacity:0;
+
+    transition:opacity 0.5s ease;
+
+    z-index:-1;
+}
+
+/* Show glass effect on scroll */
+#navbar.scrolled::before{
+    opacity:1;
+}
+
+/* =====================================
+   LOGO
+===================================== */
+.logo{
+    text-decoration:none;
 }
 
 .logo img{
-    width:200px;
-    height:200px;
-    object-fit:contain;
-    transition:0.3s ease;
-}
-.logo:hover img{
-    transform:scale(1.08);
+    width:180px;
+    display:block;
+    border:none;
+
+    transition:transform .4s ease;
 }
 
+.logo:hover img{
+    transform:scale(1.1);
+}
+
+/* =====================================
+   MENU
+===================================== */
 nav ul{
     display:flex;
-    align-items:center;
-    gap:45px;
     list-style:none;
+    gap:40px;
 }
 
 nav ul li a{
     text-decoration:none;
-    color:#000000;
-    font-size:22px;
-    font-weight:9000;
-    letter-spacing:1.5px;
+    color:#1f252b;
+    font-size:16px;
+    font-weight:700;
+    letter-spacing:1px;
     transition:.3s;
 }
 
 nav ul li a:hover{
-    color:#975252;
+    color:#caa86a;
 }
 
-/* navbar text black when background appears */
+nav ul li a.active{
 
-header.scrolled nav ul li a{
-    color:#000;
+    color:#caa86a;
+
 }
 
-header.scrolled nav ul li a:hover{
-    color:#444;
+nav ul li a.active{
+
+    color:#caa86a;
+
+}
+/* =====================================
+   HERO SECTION
+===================================== */
+.hero{
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:50px;
+    font-weight:bold;
+
+    background:linear-gradient(
+        135deg,
+        #dbeafe,
+        #ffffff
+    );
 }
 
+/* =====================================
+   CONTENT
+===================================== */
+.content{
+    min-height:150vh;
+    padding:60px;
+    background:#f5f5f5;
+}
+
+.content h2{
+    margin-bottom:20px;
+}
+
+/* =====================================
+   MOBILE
+===================================== */
 @media(max-width:768px){
 
-    header{
-        padding:0 20px;
+    #navbar{
+        left:10px;
+        right:10px;
         height:60px;
+        padding:0 15px;
     }
 
-    .logo imglogo img{
-        width:90px;
-        height:90px;
+    .logo img{
+        width:120px;
     }
 
     nav ul{
-        gap:18px;
+        gap:12px;
     }
 
     nav ul li a{
-        font-size:11px;
+        font-size:12px;
     }
 }
 

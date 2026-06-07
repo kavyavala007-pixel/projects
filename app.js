@@ -211,13 +211,12 @@ preloadImages();
 
 const navbar = document.getElementById("navbar");
 
-window.addEventListener("scroll", () => {
+window.addEventListener("scroll", function(){
 
-   if(window.scrollY > 2410){
-    navbar.classList.add("scrolled");
-}
-else{
-    navbar.classList.remove("scrolled");
-}
+    if(window.scrollY >  2410){
+        navbar.classList.add("scrolled");
+    }else{
+        navbar.classList.remove("scrolled");
+    }
 
 });

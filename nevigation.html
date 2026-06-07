@@ -1,205 +1,664 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vala Construction</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            text-decoration: none;
-            list-style: none;
-            font-family: Arial, sans-serif;
-        }
+<title>Projects</title>
 
-        body {
-            background: #fff;
-        }
+<style>
 
-        /* NAVBAR */
-        header {
-            position: fixed;
-            top: 15px;
-            left: 20px;
-            width: calc(100% - 40px);
-            height: 60px;
+/* ==========================
+   RESET
+========================== */
 
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-            padding: 0 35px;
-            z-index: 1000;
+html{
+    scroll-behavior:smooth;
+}
 
-            border-radius: 20px;
-            transition: all 0.4s ease;
-        }
+body{
+    font-family:'Manrope',sans-serif;
+    background:#f8f6f2;
+    color:#1f252b;
+    overflow-x:hidden;
+}
 
-        /* PREMIUM TRANSLUCENT GLASS EFFECT */
-        header.scrolled {
-            background: rgba(255, 255, 255, 0.04);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
+/* ==========================
+   NEW GLASS NAVBAR
+========================== */
 
-            border: 1px solid rgba(255, 255, 255, 0.12);
+#navbar{
+    position:fixed;
+    top:15px;
+    left:20px;
+    right:20px;
 
-            box-shadow:
-                0 8px 30px rgba(0, 0, 0, 0.06);
-        }
+    height:55px;
 
-        /* LOGO */
-        .logo img {
-            width: 145px;
-            height: 145px;
-            object-fit: contain;
-            transition: 0.3s;
-        }
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 
-        .logo img:hover {
-            transform: scale(1.05);
-        }
+    padding:0 20px;
 
-        /* NAVIGATION */
-        nav ul {
-            display: flex;
-            align-items: center;
-            gap: 45px;
-        }
+    z-index:9999;
+}
 
-        nav ul li a {
-            color: #ffffff;
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            transition: 0.3s;
-        }
+#navbar::before{
+    content:"";
 
-        nav ul li a:hover {
-            color: #d8b38a;
-        }
+    position:absolute;
+    inset:0;
 
-        /* HERO */
-        .hero {
-            height: 100vh;
-            background:
-                linear-gradient(rgba(0, 0, 0, 0.25),
-                    rgba(0, 0, 0, 0.25)),
-                url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1800")
-                center center/cover no-repeat;
+    border-radius:22px;
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
+    background:rgba(255,255,255,0.15);
 
-        .hero h1 {
-            color: white;
-            font-size: 80px;
-            letter-spacing: 4px;
-            font-weight: 800;
-        }
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
 
-        /* CONTENT */
-        .section {
-            padding: 120px 10%;
-        }
+    border:1px solid rgba(255,255,255,0.25);
 
-        .section h2 {
-            font-size: 42px;
-            margin-bottom: 20px;
-            color: #222;
-        }
+    box-shadow:0 8px 32px rgba(0,0,0,0.12);
 
-        .section p {
-            font-size: 18px;
-            line-height: 1.8;
-            color: #555;
-            max-width: 800px;
-        }
+    opacity:0;
 
-        @media (max-width: 768px) {
+    transition:opacity 0.5s ease;
 
-            header {
-                padding: 0 20px;
-            }
+    z-index:-1;
+}
 
-            .logo img {
-                width: 115px;
-                height: 115px;
-            }
+#navbar.scrolled::before{
+    opacity:1;
+}
 
-            nav ul {
-                gap: 18px;
-            }
+/* LOGO */
 
-            nav ul li a {
-                font-size: 11px;
-            }
+.logo{
+    text-decoration:none;
+}
 
-            .hero h1 {
-                font-size: 42px;
-            }
-        }
-    </style>
+.logo img{
+    width:180px;
+    display:block;
+    border:none;
+
+    transition:transform .4s ease;
+}
+
+.logo:hover img{
+    transform:scale(1.1);
+}
+
+/* MENU */
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:40px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:#ffffff;
+    font-size:16px;
+    font-weight:700;
+    letter-spacing:1px;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:#caa86a;
+}
+
+nav ul li a.active{
+    color:#caa86a;
+}
+
+/* ==========================
+   ANIMATION
+========================== */
+
+.fade-up{
+    opacity:0;
+    transform:translateY(60px);
+    transition:all .9s ease;
+}
+
+.fade-up.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(20px);
+    }
+}
+
+/* ==========================
+   HERO
+========================== */
+
+.hero{
+    min-height:100vh;
+
+    background:
+    linear-gradient(
+        rgba(24,24,24,.55),
+        rgba(24,24,24,.55)
+    ),
+    url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2200&q=80');
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+
+    display:flex;
+    align-items:center;
+    padding:0 8%;
+
+    position:relative;
+    overflow:hidden;
+}
+
+.hero::before{
+    content:'';
+    position:absolute;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    background:
+    radial-gradient(
+        rgba(202,168,106,.25),
+        transparent 70%
+    );
+    right:-150px;
+    top:-150px;
+    animation:float 8s infinite ease-in-out;
+}
+
+.hero-content{
+    max-width:850px;
+    position:relative;
+    z-index:2;
+}
+
+.hero-tag{
+    display:inline-block;
+    color:#caa86a;
+    letter-spacing:5px;
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-size:clamp(3.5rem,8vw,7rem);
+    line-height:1;
+    color:#fff;
+    font-weight:800;
+    margin-bottom:25px;
+}
+
+.hero p{
+    font-size:20px;
+    color:#e5e5e5;
+    line-height:1.8;
+    max-width:700px;
+    margin-bottom:40px;
+}
+
+.hero-btn{
+    display:inline-block;
+    padding:16px 35px;
+    border-radius:50px;
+    background:#caa86a;
+    color:#fff;
+    text-decoration:none;
+    font-weight:700;
+    transition:.3s;
+}
+
+.hero-btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 15px 35px rgba(202,168,106,.35);
+}
+
+/* ==========================
+   PROJECT SECTION
+========================== */
+
+.featured-project{
+    padding:120px 6%;
+    display:grid;
+    grid-template-columns:.8fr 1.2fr;
+    gap:70px;
+    align-items:center;
+}
+
+.project-image{
+    max-width:420px;
+    width:100%;
+    margin:auto;
+    overflow:hidden;
+    border-radius:30px;
+    box-shadow:0 20px 50px rgba(0,0,0,.12);
+    transition:.4s;
+}
+
+.project-image:hover{
+    transform:translateY(-8px);
+}
+
+.project-image img{
+    width:100%;
+    display:block;
+    transition:.8s;
+}
+
+.project-image:hover img{
+    transform:scale(1.05);
+}
+.project-content span{
+    color:#caa86a;
+    letter-spacing:4px;
+    font-size:13px;
+    font-weight:700;
+}
+
+.project-content h2{
+    font-size:clamp(2.5rem,5vw,4.5rem);
+    margin:18px 0 25px;
+    line-height:1.1;
+}
+
+.project-content p{
+    color:#666;
+    line-height:1.9;
+    font-size:17px;
+}
+
+/* LOCATION CARD */
+
+.project-details{
+    width:100%;
+    margin-top:40px;
+}
+
+.detail{
+    width:100%;
+    background:#fff;
+    border-radius:22px;
+    padding:40px;
+    text-align:center;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+    transition:.4s;
+}
+
+.detail:hover{
+    transform:translateY(-5px);
+}
+
+.detail h4{
+    color:#caa86a;
+    font-size:15px;
+    letter-spacing:3px;
+    margin-bottom:12px;
+}
+
+.detail p{
+    color:#1f252b;
+    font-size:24px;
+    font-weight:800;
+}
+
+/* ==========================
+   FOOTER CTA
+========================== */
+
+.footer-cta{
+    background:#2c2925;
+    padding:55px 6%;
+    position:relative;
+    overflow:hidden;
+}
+
+.footer-cta::before{
+    content:'';
+    position:absolute;
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    background:
+    radial-gradient(
+        rgba(202,168,106,.12),
+        transparent 70%
+    );
+    right:-120px;
+    top:-120px;
+}
+
+.footer-cta-content{
+    max-width:1400px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:40px;
+    position:relative;
+    z-index:2;
+}
+
+.footer-left span{
+    display:block;
+    color:#caa86a;
+    font-size:12px;
+    letter-spacing:4px;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.footer-left h2{
+    color:#f8f6f2;
+    font-size:clamp(1.8rem,3vw,2.8rem);
+    line-height:1.2;
+    font-weight:700;
+    max-width:650px;
+}
+
+.footer-right{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.nav-btn{
+    padding:14px 28px;
+    border-radius:50px;
+    text-decoration:none;
+    font-size:15px;
+    font-weight:600;
+    color:#d8d1c7;
+    border:1px solid rgba(255,255,255,.08);
+    background:rgba(255,255,255,.03);
+    transition:.35s ease;
+}
+
+.nav-btn:hover{
+    background:#caa86a;
+    color:#fff;
+    border-color:#caa86a;
+    transform:translateY(-2px);
+}
+
+.nav-btn.active{
+    background:#caa86a;
+    color:#fff;
+    border-color:#caa86a;
+    box-shadow:0 10px 25px rgba(202,168,106,.25);
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media(max-width:991px){
+
+    .hero{
+        background-attachment:scroll;
+    }
+
+    .featured-project{
+        grid-template-columns:1fr;
+        gap:50px;
+    }
+
+    .project-image{
+        max-width:320px;
+    }
+
+    .hero h1{
+        font-size:3rem;
+    }
+
+    .hero p{
+        font-size:17px;
+    }
+
+    .detail{
+        padding:30px 20px;
+    }
+
+    .detail p{
+        font-size:20px;
+    }
+}
+
+@media(max-width:768px){
+
+    #navbar{
+        left:10px;
+        right:10px;
+        height:60px;
+        padding:0 15px;
+    }
+
+    .logo img{
+        width:120px;
+    }
+
+    nav ul{
+        gap:12px;
+    }
+
+    nav ul li a{
+        font-size:12px;
+    }
+
+    .footer-cta-content{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .footer-right{
+        width:100%;
+    }
+
+    .nav-btn{
+        flex:1;
+        text-align:center;
+    }
+}
+
+</style>
 </head>
-
 <body>
 
-    <header id="navbar">
+<!-- ==========================
+     NAVBAR
+========================== -->
 
-        <a href="#" class="logo">
-            <img src="logo.png" alt="Vala Construction Logo">
+<header id="navbar">
+
+    <a href="index.html" class="logo">
+        <img src="logo.png" alt="Vala Projects Logo">
+    </a>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="project.html" class="active">PROJECTS</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+    </nav>
+
+</header>
+
+<!-- ==========================
+     HERO
+========================== -->
+
+<section class="hero">
+
+    <div class="hero-content fade-up">
+
+        <span class="hero-tag">
+            OUR FLAGSHIP DEVELOPMENT
+        </span>
+
+        <h1>
+            Vala Heights
+        </h1>
+
+        <p>
+            A landmark residential development crafted with modern architecture,
+            premium amenities, and exceptional attention to detail to redefine
+            contemporary living.
+        </p>
+
+        <a href="#project" class="hero-btn">
+            Explore Project
         </a>
 
-        <nav>
-            <ul>
-                <li><a href="#">HOME</a></li>
-                <li><a href="#">ABOUT</a></li>
-                <li><a href="#">PROJECTS</a></li>
-                <li><a href="#">CONTACT</a></li>
-            </ul>
-        </nav>
+    </div>
 
-    </header>
+</section>
+<!-- ==========================
+     PROJECT SECTION
+========================== -->
 
-    <section class="hero">
-        <h1>VALA CONSTRUCTION</h1>
-    </section>
+<section class="featured-project fade-up" id="project">
 
-    <section class="section">
-        <h2>About Us</h2>
+    <div class="project-image">
+        <img src="building.jpg" alt="OM SHREE GANESH CHS">
+    </div>
+
+    <div class="project-content">
+
+        <span>FEATURED PROJECT</span>
+
+        <h2>OM SHREE GANESH CHS</h2>
+
         <p>
-            We deliver premium residential and commercial construction
-            projects with a focus on quality, innovation, and timeless design.
+            Located in the heart of Kandivali West, OM SHREE GANESH CHS is a
+            thoughtfully planned redevelopment project designed to provide
+            residents with modern amenities, elegant architecture, superior
+            construction quality and a comfortable living experience.
         </p>
-    </section>
 
-    <section class="section">
-        <h2>Our Projects</h2>
-        <p>
-            From luxury villas to modern commercial developments,
-            we build spaces that combine functionality, durability,
-            and architectural excellence.
-        </p>
-    </section>
+        <div class="project-details">
 
-    <script>
-        const navbar = document.getElementById("navbar");
+            <div class="detail">
 
-        window.addEventListener("scroll", () => {
-            if (window.scrollY > 20) {
-                navbar.classList.add("scrolled");
-            } else {
-                navbar.classList.remove("scrolled");
-            }
-        });
-    </script>
+                <h4>LOCATION</h4>
+
+                <p>Kandivali West</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================
+     FOOTER CTA
+========================== -->
+
+<section class="footer-cta">
+
+    <div class="footer-cta-content">
+
+        <div class="footer-left">
+
+            <span>READY TO CONNECT?</span>
+
+            <h2>
+                Let's Build Something Exceptional Together
+            </h2>
+
+        </div>
+
+        <div class="footer-right">
+
+            <a href="index.html" class="nav-btn">
+                Home
+            </a>
+
+            <a href="about.html" class="nav-btn">
+                About
+            </a>
+
+            <a href="project.html" class="nav-btn active">
+                Projects
+            </a>
+
+            <a href="contact.html" class="nav-btn">
+                Contact
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================
+     JAVASCRIPT
+========================== -->
+
+<script>
+
+/* Fade Up Animation */
+
+const observer = new IntersectionObserver((entries)=>{
+
+    entries.forEach((entry)=>{
+
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
+
+    });
+
+},{
+    threshold:0.15
+});
+
+document.querySelectorAll(".fade-up").forEach((el)=>{
+    observer.observe(el);
+});
+
+
+/* Glass Navbar Effect */
+
+const navbar = document.getElementById("navbar");
+
+window.addEventListener("scroll", function(){
+
+    if(window.scrollY > 0){
+        navbar.classList.add("scrolled");
+    }
+    else{
+        navbar.classList.remove("scrolled");
+    }
+
+});
+
+</script>
 
 </body>
-
 </html>

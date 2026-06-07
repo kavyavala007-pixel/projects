@@ -6,610 +6,643 @@
 
 <title>Contact | Vala Projects</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
+/* ==========================
+   RESET
+========================== */
+
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 html{
-scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 body{
-font-family:'Manrope',sans-serif;
-background:#f8f6f2;
-color:#1f252b;
-overflow-x:hidden;
+    font-family:'Manrope',sans-serif;
+    background:#f8f6f2;
+    color:#1f252b;
+    overflow-x:hidden;
 }
 
-/* ================= NAVBAR ================= */
+/* ==========================
+   NAVBAR
+========================== */
 
-header{
-position:fixed;
-top:15px;
-left:20px;
-width:calc(100% - 40px);
-height:70px;
+#navbar{
+    position:fixed;
+    top:15px;
+    left:20px;
+    right:20px;
+    height:55px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 20px;
+    z-index:9999;
+}
 
-display:flex;
-justify-content:space-between;
-align-items:center;
+#navbar::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:22px;
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,0.25);
+    box-shadow:0 8px 32px rgba(0,0,0,0.12);
+    opacity:0;
+    transition:opacity .5s ease;
+    z-index:-1;
+}
 
-padding:0 35px;
+#navbar.scrolled::before{
+    opacity:1;
+}
 
-z-index:9999;
-
-border-radius:22px;
-
-background:rgba(255,255,255,.85);
-backdrop-filter:blur(20px);
-
-border:1px solid rgba(0,0,0,.05);
-
-box-shadow:
-0 10px 30px rgba(0,0,0,.10);
+.logo{
+    text-decoration:none;
 }
 
 .logo img{
-width:180px;
-height:180px;
-object-fit:contain;
-transition:.4s;
+    width:180px;
+    display:block;
+    transition:transform .4s ease;
 }
 
 .logo:hover img{
-transform:scale(1.08);
+    transform:scale(1.08);
 }
 
 nav ul{
-display:flex;
-gap:45px;
-list-style:none;
+    display:flex;
+    list-style:none;
+    gap:40px;
 }
 
 nav ul li a{
-text-decoration:none;
-color:#000;
-font-size:18px;
-font-weight:700;
-transition:.3s;
+    text-decoration:none;
+    color:#000;
+    font-size:16px;
+    font-weight:700;
+    letter-spacing:1px;
+    transition:.3s;
 }
 
-nav ul li a:hover{
-color:#caa86a;
-}
-
+nav ul li a:hover,
 nav ul li a.active{
-color:#caa86a;
+    color:#caa86a;
 }
 
-/* ================= HERO ================= */
+/* ==========================
+   HERO
+========================== */
 
-.hero{
-padding:180px 8% 120px;
-position:relative;
-overflow:hidden;
+.contact-hero{
+    min-height:75vh;
+
+    background:
+    linear-gradient(
+        rgba(24,24,24,.60),
+        rgba(24,24,24,.60)
+    ),
+    url('c.jpeg');
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+
+    padding:120px 8%;
 }
 
-.hero::before{
-content:'';
-position:absolute;
-inset:0;
-
-background:
-linear-gradient(rgba(0,0,0,.025) 1px, transparent 1px),
-linear-gradient(90deg, rgba(0,0,0,.025) 1px, transparent 1px);
-
-background-size:70px 70px;
+.contact-hero-content{
+    max-width:850px;
 }
 
-.hero-content{
-position:relative;
-z-index:2;
-max-width:900px;
+.contact-tag{
+    display:inline-block;
+    color:#caa86a;
+    letter-spacing:5px;
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:25px;
 }
 
-.hero-tag{
-color:#caa86a;
-font-size:13px;
-letter-spacing:5px;
-font-weight:700;
+.contact-hero h1{
+    font-size:clamp(3.5rem,8vw,7rem);
+    color:#fff;
+    line-height:1;
+    margin-bottom:25px;
+    font-weight:800;
 }
 
-.hero h1{
-font-size:clamp(3rem,7vw,6rem);
-line-height:1;
-margin:20px 0;
+.contact-hero p{
+    color:#e6e6e6;
+    font-size:20px;
+    line-height:1.8;
+    max-width:700px;
+    margin:auto;
 }
 
-.hero p{
-font-size:18px;
-line-height:1.9;
-color:#666;
-max-width:750px;
-}
+/* ==========================
+   ADDRESS SECTION
+========================== */
 
-/* ================= CONTACT INFO ================= */
-
-.contact-section{
-padding:0 8% 120px;
+.contact-block{
+    padding:120px 7%;
 }
 
 .contact-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:25px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+    align-items:center;
 }
 
-.contact-card{
-background:#fff;
-padding:40px;
-border-radius:30px;
-
-box-shadow:
-0 15px 40px rgba(0,0,0,.05);
-
-transition:.4s;
+.contact-text span{
+    color:#caa86a;
+    letter-spacing:4px;
+    font-size:13px;
+    font-weight:700;
 }
 
-.contact-card:hover{
-transform:translateY(-8px);
+.contact-text h2{
+    font-size:clamp(2.5rem,5vw,4rem);
+    margin:20px 0;
+    line-height:1.1;
 }
 
-.contact-card h3{
-color:#caa86a;
-font-size:14px;
-letter-spacing:3px;
-margin-bottom:15px;
+.contact-text p{
+    color:#666;
+    font-size:18px;
+    line-height:2;
 }
 
-.contact-card p{
-color:#666;
-line-height:1.8;
+.contact-image img{
+    width:100%;
+    display:block;
+    border-radius:30px;
+    box-shadow:0 20px 50px rgba(0,0,0,.08);
+}
+/* ==========================
+   CONTACT NUMBERS
+========================== */
+
+.phone-section{
+    padding:20px 7% 120px;
 }
 
-/* ================= MAP SECTION ================= */
-
-.map-section{
-padding:0 8% 120px;
+.section-heading{
+    text-align:center;
+    margin-bottom:50px;
 }
 
-.map-container{
-position:relative;
-height:650px;
-border-radius:35px;
-overflow:hidden;
-
-box-shadow:
-0 25px 70px rgba(0,0,0,.08);
+.section-heading span{
+    color:#caa86a;
+    letter-spacing:4px;
+    font-size:13px;
+    font-weight:700;
 }
 
-.map-container iframe{
-width:100%;
-height:100%;
-border:none;
-filter:grayscale(20%);
+.section-heading h2{
+    font-size:clamp(2.5rem,5vw,4rem);
+    margin-top:20px;
+    line-height:1.1;
 }
 
-.office-card{
-position:absolute;
-
-left:60px;
-top:50%;
-
-transform:translateY(-50%);
-
-width:380px;
-
-background:rgba(255,255,255,.96);
-
-backdrop-filter:blur(20px);
-
-padding:40px;
-
-border-radius:30px;
-
-box-shadow:
-0 20px 60px rgba(0,0,0,.15);
+.phone-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
 }
 
-.office-card span{
-display:block;
-
-color:#caa86a;
-
-font-size:12px;
-
-letter-spacing:4px;
-
-font-weight:700;
-
-margin-bottom:10px;
+.phone-card{
+    background:#fff;
+    padding:50px;
+    border-radius:30px;
+    text-align:center;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+    transition:.35s ease;
 }
 
-.office-card h2{
-font-size:32px;
-margin-bottom:18px;
+.phone-card:hover{
+    transform:translateY(-6px);
 }
 
-.office-card p{
-line-height:1.9;
-color:#666;
-margin-bottom:18px;
+
+.phone-card p{
+    font-size:24px;
+    color:#caa86a;
+    font-weight:800;
+}
+.phone-single{
+    display:flex;
+    justify-content:center;
 }
 
-.direction-btn{
-display:inline-block;
-
-padding:14px 28px;
-
-border-radius:50px;
-
-background:#caa86a;
-
-color:#fff;
-
-text-decoration:none;
-
-font-weight:700;
-
-transition:.3s;
+.phone-card{
+    max-width:500px; /* slimmer box */
+    width:100%;
+    padding:30px 40px;
 }
 
-.direction-btn:hover{
-transform:translateY(-3px);
+.phone-card p{
+    font-size:28px;
+    color:#caa86a;
+    font-weight:800;
+    margin:0;
+}
+/* ==========================
+   EMAIL SECTION
+========================== */
+
+.email-section{
+    padding:0 7% 120px;
+    text-align:center;
 }
 
-/* ================= STATS ================= */
-
-.stats{
-padding:0 8% 120px;
+.email-section span{
+    color:#caa86a;
+    letter-spacing:4px;
+    font-size:13px;
+    font-weight:700;
 }
 
-.stats-box{
-background:#fff;
-
-padding:60px;
-
-border-radius:35px;
-
-display:grid;
-
-grid-template-columns:repeat(3,1fr);
-
-text-align:center;
-
-box-shadow:
-0 15px 40px rgba(0,0,0,.05);
+.email-section h2{
+    font-size:clamp(2.5rem,5vw,4rem);
+    margin:20px 0 35px;
 }
 
-.stat h2{
-font-size:60px;
-color:#caa86a;
+.email-box{
+    max-width:850px;
+    margin:auto;
+    background:#fff;
+    padding:40px;
+    border-radius:30px;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+
+    font-size:24px;
+    font-weight:800;
+    color:#1f252b;
+
+    transition:.35s ease;
 }
 
-.stat p{
-margin-top:10px;
-color:#666;
+.email-box:hover{
+    transform:translateY(-5px);
 }
 
-/* ================= FOOTER CTA ================= */
+/* ==========================
+   FOOTER CTA
+========================== */
 
 .footer-cta{
-background:#2c2925;
-padding:55px 6%;
-position:relative;
-overflow:hidden;
+    background:#2c2925;
+    padding:55px 6%;
+    position:relative;
+    overflow:hidden;
 }
 
 .footer-cta::before{
-content:'';
-
-position:absolute;
-
-width:300px;
-height:300px;
-
-border-radius:50%;
-
-background:
-radial-gradient(
-rgba(202,168,106,.12),
-transparent 70%
-);
-
-right:-120px;
-top:-120px;
+    content:'';
+    position:absolute;
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    background:
+    radial-gradient(
+        rgba(202,168,106,.12),
+        transparent 70%
+    );
+    right:-120px;
+    top:-120px;
 }
 
 .footer-cta-content{
-max-width:1400px;
-
-margin:auto;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-gap:40px;
-
-position:relative;
-z-index:2;
+    max-width:1400px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:40px;
+    position:relative;
+    z-index:2;
 }
 
 .footer-left span{
-display:block;
-
-color:#caa86a;
-
-font-size:12px;
-
-letter-spacing:4px;
-
-font-weight:700;
-
-margin-bottom:10px;
+    display:block;
+    color:#caa86a;
+    font-size:12px;
+    letter-spacing:4px;
+    font-weight:700;
+    margin-bottom:10px;
 }
 
 .footer-left h2{
-color:#fff;
-
-font-size:clamp(1.8rem,3vw,2.8rem);
+    color:#f8f6f2;
+    font-size:clamp(1.8rem,3vw,2.8rem);
+    line-height:1.2;
+    font-weight:700;
+    max-width:650px;
 }
 
 .footer-right{
-display:flex;
-gap:12px;
-flex-wrap:wrap;
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
 }
 
 .nav-btn{
-padding:14px 28px;
-
-border-radius:50px;
-
-text-decoration:none;
-
-color:#d8d1c7;
-
-background:rgba(255,255,255,.03);
-
-border:1px solid rgba(255,255,255,.08);
-
-transition:.35s;
+    padding:14px 28px;
+    border-radius:50px;
+    text-decoration:none;
+    font-size:15px;
+    font-weight:600;
+    color:#d8d1c7;
+    border:1px solid rgba(255,255,255,.08);
+    background:rgba(255,255,255,.03);
+    transition:.35s ease;
 }
 
 .nav-btn:hover{
-background:#caa86a;
-color:#fff;
+    background:#caa86a;
+    color:#fff;
+    border-color:#caa86a;
 }
 
 .nav-btn.active{
-background:#caa86a;
-color:#fff;
+    background:#caa86a;
+    color:#fff;
+    border-color:#caa86a;
 }
 
-/* ================= MOBILE ================= */
+/* ==========================
+   MOBILE
+========================== */
 
-@media(max-width:991px){
+@media(max-width:900px){
 
-.contact-grid{
-grid-template-columns:1fr;
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .phone-grid{
+        grid-template-columns:1fr;
+    }
+
+    .footer-cta-content{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .footer-right{
+        width:100%;
+    }
+
+    .nav-btn{
+        flex:1;
+        text-align:center;
+    }
 }
 
-.stats-box{
-grid-template-columns:1fr;
-gap:40px;
+@media(max-width:768px){
+
+    #navbar{
+        left:10px;
+        right:10px;
+        height:60px;
+        padding:0 15px;
+    }
+
+    .logo img{
+        width:120px;
+    }
+
+    nav ul{
+        gap:12px;
+    }
+
+    nav ul li a{
+        font-size:12px;
+    }
+
+    .phone-card{
+        padding:35px 20px;
+    }
+
+    .phone-card h3{
+        font-size:24px;
+    }
+
+    .phone-card p{
+        font-size:18px;
+    }
+
+    .email-box{
+        font-size:18px;
+        padding:25px;
+    }
+}
+.contact-map{
+    width:900px;
+    height:300px;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 15px 35px rgba(0,0,0,0.12);
+    border:1px solid rgba(0,0,0,0.08);
 }
 
-.office-card{
-position:relative;
-left:auto;
-top:auto;
-transform:none;
-
-width:100%;
-border-radius:0;
+.contact-map iframe{
+    width:100%;
+    height:100%;
+    border:none;
+    display:block;
 }
-
-.map-container{
-height:auto;
-display:flex;
-flex-direction:column;
-}
-
-.map-container iframe{
-height:400px;
-}
-
-.footer-cta-content{
-flex-direction:column;
-align-items:flex-start;
-}
-
-nav ul{
-gap:18px;
-}
-
-nav ul li a{
-font-size:12px;
-}
-
-.logo img{
-width:100px;
-height:100px;
-}
-}
-
 </style>
 </head>
 
 <body>
 
-<header>
+<header id="navbar">
 
-<a href="index.html" class="logo">
-<img src="logo.png" alt="Logo">
-</a>
+    <a href="index.html" class="logo">
+        <img src="logo.png" alt="Vala Projects">
+    </a>
 
-<nav>
-<ul>
-<li><a href="index.html">HOME</a></li>
-<li><a href="about.html">ABOUT</a></li>
-<li><a href="project.html">PROJECTS</a></li>
-<li><a href="contact.html" class="active">CONTACT</a></li>
-</ul>
-</nav>
+    <nav>
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="project.html">PROJECTS</a></li>
+            <li><a href="contact.html" class="active">CONTACT</a></li>
+        </ul>
+    </nav>
 
 </header>
 
-<section class="hero">
+<section class="contact-hero">
 
-<div class="hero-content">
+    <div class="contact-hero-content">
 
-<span class="hero-tag">
-GET IN TOUCH
-</span>
+        <span class="contact-tag">
+            GET IN TOUCH
+        </span>
 
-<h1>
-Building Relationships.<br>
-Creating Landmarks.
-</h1>
+        <h1>Contact Us</h1>
 
-<p>
-Connect with Vala Projects for redevelopment opportunities,
-project enquiries, site visits and investment discussions.
-Our team is committed to delivering exceptional spaces and
-lasting value.
-</p>
+        <p>
+            We'd love to hear from you and discuss your next opportunity.
+        </p>
 
+    </div>
+
+</section>
+<!-- ==========================
+     ADDRESS SECTION
+========================== -->
+
+<section class="contact-block">
+
+    <div class="contact-grid">
+
+        <div class="contact-text">
+
+            <span>OUR LOCATION</span>
+
+            <h2>Visit Our Office</h2>
+
+            <p>
+                OM SHREE GANESH CHS.<br>
+                Kandivali West,<br>
+                Mumbai, Maharashtra.
+            </p>
+
+        </div>
+
+       <div class="contact-map">
+    <iframe
+        src="https://maps.google.com/maps?q=Kandivali%20West%20Mumbai&t=&z=15&ie=UTF8&iwloc=&output=embed"
+        loading="lazy"
+        allowfullscreen>
+    </iframe>
 </div>
+
+    </div>
 
 </section>
 
-<section class="contact-section">
+<!-- ==========================
+     CONTACT NUMBERS
+========================== -->
+<section class="phone-section">
 
-<div class="contact-grid">
+    <div class="section-heading">
 
-<div class="contact-card">
-<h3>ADDRESS</h3>
-<p>
-Office No. 201,<br>
-Swayambhu Residency Building,<br>
-Borivali East, Mumbai - 400066
-</p>
-</div>
+        <span>CONTACT NUMBER</span>
 
-<div class="contact-card">
-<h3>PHONE</h3>
-<p>
-+91 98765 43210
-</p>
-</div>
+        <h2>Speak With Us</h2>
 
-<div class="contact-card">
-<h3>EMAIL</h3>
-<p>
-info@valaprojects.com
-</p>
-</div>
+    </div>
 
-</div>
+    <div class="phone-single">
+
+        <div class="phone-card">
+
+            <p>
+                +91 98765 43210
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ==========================
+     EMAIL SECTION
+========================== -->
+
+<section class="email-section">
+
+    <span>EMAIL ADDRESS</span>
+
+    <h2>Write To Us</h2>
+
+    <div class="email-box">
+
+        info@valaprojects.com
+
+    </div>
 
 </section>
 
-<section class="map-section">
-
-<div class="map-container">
-
-<iframe
-src="https://www.google.com/maps?q=Kandivali%20West%20Mumbai&output=embed"
-loading="lazy">
-</iframe>
-
-<div class="office-card">
-
-<span>HEAD OFFICE</span>
-
-<h2>Vala Projects</h2>
-
-<p>
-Office No. 201,<br>
-Borivali East,<br>
-Mumbai - 400066
-</p>
-
-<p>
-+91 98765 43210<br>
-info@valaprojects.com
-</p>
-
-<a href="https://maps.google.com" target="_blank" class="direction-btn">
-Get Directions
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="stats">
-
-<div class="stats-box">
-
-<div class="stat">
-<h2>15+</h2>
-<p>Years Experience</p>
-</div>
-
-<div class="stat">
-<h2>100+</h2>
-<p>Happy Families</p>
-</div>
-
-<div class="stat">
-<h2>25+</h2>
-<p>Projects Delivered</p>
-</div>
-
-</div>
-
-</section>
+<!-- ==========================
+     FOOTER CTA
+========================== -->
 
 <section class="footer-cta">
 
-<div class="footer-cta-content">
+    <div class="footer-cta-content">
 
-<div class="footer-left">
+        <div class="footer-left">
 
-<span>READY TO CONNECT?</span>
+            <span>READY TO CONNECT?</span>
 
-<h2>
-Let's Build Something Exceptional Together
-</h2>
+            <h2>
+                Let's Build Something Exceptional Together
+            </h2>
 
-</div>
+        </div>
 
-<div class="footer-right">
+        <div class="footer-right">
 
-<a href="index.html" class="nav-btn">Home</a>
-<a href="about.html" class="nav-btn">About</a>
-<a href="project.html" class="nav-btn">Projects</a>
-<a href="contact.html" class="nav-btn active">Contact</a>
+            <a href="index.html" class="nav-btn">
+                Home
+            </a>
 
-</div>
+            <a href="about.html" class="nav-btn">
+                About
+            </a>
 
-</div>
+            <a href="project.html" class="nav-btn">
+                Projects
+            </a>
+
+            <a href="contact.html" class="nav-btn active">
+                Contact
+            </a>
+
+        </div>
+
+    </div>
 
 </section>
+
+<script>
+
+const navbar = document.getElementById("navbar");
+
+window.addEventListener("scroll", function(){
+
+    if(window.scrollY > 0){
+        navbar.classList.add("scrolled");
+    }else{
+        navbar.classList.remove("scrolled");
+    }
+
+});
+
+</script>
 
 </body>
 </html>

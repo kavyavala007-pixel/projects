@@ -13,183 +13,201 @@
 
 <body>
     <!-- The scroll track container: provides the height/track for scroll -->
-<header id="navbar">
+    <header id="navbar">
 
-    <a href="about.html" target="_blank" class="logo">
-        <img src="logo.png" alt="Vala Projects Logo">
-    </a>
+        <a href="about.html" class="logo">
+            <img src="logo.png" alt="Vala Projects Logo">
+        </a>
 
-    <nav>
-        <ul>
-            <li><a href="index.html" target="_blank" class="active"><b>HOME</b></a></li>
-            <li><a href="about.html" target="_blank"><b>ABOUT</b></a></li>
-            <li><a href="project.html" target="_blank"><b>PROJECTS</b></a></li>
-            <li><a href="contact.html" target="_blank"><b>CONTACT</b></a></li>
-        </ul>
-    </nav>
+        <!-- Hamburger icon for mobile -->
+        <div class="hamburger" id="hamburger-btn" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
 
-</header>
-    
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="index.html" target="_blank" class="active"><b>HOME</b></a></li>
+                <li><a href="about.html" target="_blank"><b>ABOUT</b></a></li>
+                <li><a href="project.html" target="_blank"><b>PROJECTS</b></a></li>
+                <li><a href="contact.html" target="_blank"><b>CONTACT</b></a></li>
+            </ul>
+        </nav>
+
+    </header>
+
     <div id="animation-container">
         <!-- Pinned element that stays inside viewport -->
         <div id="sticky-wrapper">
 
-    <canvas id="animation-canvas"></canvas>
+            <canvas id="animation-canvas"></canvas>
 
-    <div class="hero-content">
-        <h1>
-            Vala<br>
-            Projects
-        </h1>
+            <div class="hero-content">
+                <h1>
+                    Vala<br>
+                    Projects
+                </h1>
 
-        <button class="hero-btn" onclick="window.open('project.html','_blank')">
+                <button class="hero-btn" onclick="window.open('project.html','_blank')">
+                    Projects
+                    <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
+
+            <div id="loading-overlay">
+                <div class="spinner"></div>
+                <div id="loading-text">Loading construction sequence... 0%</div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Mobile Hero Fallback Section -->
+    <section id="mobile-hero">
+        <div class="hero-content">
+            <h1>
+                Vala<br>
                 Projects
-            <svg fill="none"
-                 stroke="currentColor"
-                 stroke-width="2.5"
-                 viewBox="0 0 24 24">
-                <path stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M5 12h14M13 5l7 7-7 7"/>
-            </svg>
-        </button>
-    </div>
-
-    <div id="loading-overlay">
-        <div class="spinner"></div>
-        <div id="loading-text">Loading construction sequence... 0%</div>
-    </div>
-
-</div>
-    </div>
+            </h1>
+            <button class="hero-btn" onclick="window.open('project.html','_blank')">
+                Projects
+                <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 5l7 7-7 7" />
+                </svg>
+            </button>
+        </div>
+    </section>
 
     <!-- Next Section that scrolls into view after the animation is finished -->
 
-<section class="vm-section">
+    <section class="vm-section">
 
-    <div class="section-header">
-        <span>WHO WE ARE</span>
-        <h1>Vision & Mission</h1>
-        <p>
-            Building landmarks with purpose, trust, and innovation while shaping
-            the future of modern living.
-        </p>
-    </div>
-
-    <!-- VISION -->
-
-    <div class="vm-row">
-
-        <div class="vm-number">
-            01
-        </div>
-
-        <div class="vm-content">
-
-            <span class="vm-tag">OUR VISION</span>
-
-            <h2>
-                Creating Tomorrow's
-                Landmarks Today
-            </h2>
-
-            <div class="line"></div>
-
-            <h4>
-                Building a future where trust, innovation and excellence define every address.
-            </h4>
-
+        <div class="section-header">
+            <span>WHO WE ARE</span>
+            <h1>Vision & Mission</h1>
             <p>
-                To rank among the top real estate firms in Mumbai, distinguished by
-                unwavering trust among stakeholders and becoming the preferred choice
-                for customers, investors and partners.
+                Building landmarks with purpose, trust, and innovation while shaping
+                the future of modern living.
             </p>
+        </div>
+
+        <!-- VISION -->
+
+        <div class="vm-row">
+
+            <div class="vm-number">
+                01
+            </div>
+
+            <div class="vm-content">
+
+                <span class="vm-tag">OUR VISION</span>
+
+                <h2>
+                    Creating Tomorrow's
+                    Landmarks Today
+                </h2>
+
+                <div class="line"></div>
+
+                <h4>
+                    Building a future where trust, innovation and excellence define every address.
+                </h4>
+
+                <p>
+                    To rank among the top real estate firms in Mumbai, distinguished by
+                    unwavering trust among stakeholders and becoming the preferred choice
+                    for customers, investors and partners.
+                </p>
+
+            </div>
 
         </div>
 
-    </div>
+        <!-- MISSION -->
 
-    <!-- MISSION -->
+        <div class="vm-row reverse">
 
-    <div class="vm-row reverse">
+            <div class="vm-content">
 
-        <div class="vm-content">
+                <span class="vm-tag">OUR MISSION</span>
 
-            <span class="vm-tag">OUR MISSION</span>
+                <h2>
+                    Building Trust
+                    Before Buildings
+                </h2>
 
-            <h2>
-                Building Trust
-                Before Buildings
-            </h2>
+                <div class="line"></div>
 
-            <div class="line"></div>
+                <h4>
+                    Every project begins with integrity, transparency and customer-first thinking.
+                </h4>
 
-            <h4>
-                Every project begins with integrity, transparency and customer-first thinking.
-            </h4>
+                <p>
+                    To redefine the real estate experience by consistently delivering
+                    exceptional value, fostering lasting relationships and upholding the
+                    highest standards of integrity, innovation and customer-centricity.
+                </p>
 
-            <p>
-                To redefine the real estate experience by consistently delivering
-                exceptional value, fostering lasting relationships and upholding the
-                highest standards of integrity, innovation and customer-centricity.
-            </p>
+                <p>
+                    Through a commitment to excellence, we create inspiring spaces that
+                    enhance lives and establish new benchmarks for quality and trust.
+                </p>
 
-            <p>
-                Through a commitment to excellence, we create inspiring spaces that
-                enhance lives and establish new benchmarks for quality and trust.
-            </p>
+            </div>
 
-        </div>
-
-        <div class="vm-number">
-            02
-        </div>
-
-    </div>
-
-</section>
-
-
-
-
-<section class="footer-cta">
-
-    <div class="footer-cta-content">
-
-        <div class="footer-left">
-
-            <span>READY TO CONNECT?</span>
-
-            <h2>
-                Let's Build Something Exceptional Together
-            </h2>
+            <div class="vm-number">
+                02
+            </div>
 
         </div>
 
-        <div class="footer-right">
+    </section>
 
-            <a href="index.html" target="_blank" class="nav-btn active">
-                Home
-            </a>
 
-            <a href="about.html" target="_blank" class="nav-btn">
-                About
-            </a>
 
-            <a href="project.html" target="_blank" class="nav-btn">
-                Projects
-            </a>
 
-            <a href="contact.html" target="_blank" class="nav-btn">
-                Contact
-            </a>
+    <section class="footer-cta">
+
+        <div class="footer-cta-content">
+
+            <div class="footer-left">
+
+                <span>READY TO CONNECT?</span>
+
+                <h2>
+                    Let's Build Something Exceptional Together
+                </h2>
+
+            </div>
+
+            <div class="footer-right">
+
+                <a href="index.html" target="_blank" class="nav-btn active">
+                    Home
+                </a>
+
+                <a href="about.html" target="_blank" class="nav-btn">
+                    About
+                </a>
+
+                <a href="project.html" target="_blank" class="nav-btn">
+                    Projects
+                </a>
+
+                <a href="contact.html" target="_blank" class="nav-btn">
+                    Contact
+                </a>
+
+            </div>
 
         </div>
 
-    </div>
-
-</section>
-<script src="app.js"></script>
+    </section>
+    <script src="app.js"></script>
 </body>
 
 </html>

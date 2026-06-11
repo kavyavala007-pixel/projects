@@ -406,8 +406,8 @@ body{
 
 .footer-left h2{
     color:#f8f6f2;
-    font-size:clamp(1.8rem,3vw,2.8rem);
-    line-height:1.2;
+    font-size:clamp(2rem,4vw,3rem);
+    line-height:1.15;
     font-weight:700;
     max-width:650px;
 }
@@ -456,15 +456,6 @@ body{
         flex-direction:column;
         align-items:flex-start;
     }
-
-    .footer-right{
-        width:100%;
-    }
-
-    .nav-btn{
-        flex:1;
-        text-align:center;
-    }
 }
 /* ==========================
    MOBILE NAVIGATION
@@ -507,17 +498,24 @@ body{
     }
 
     #nav-menu{
-        position:fixed;
-        top:65px;
-        left:-280px;
-        width:25a0px;
-        height:calc(100vh - 65px);
-        background:#111;
-        padding-top:25px;
-        transition:left .35s ease;
-        z-index:9998;
+    position:fixed;
 
-    }
+    top:65px;
+
+    left:-80%;
+
+    width:80%;
+
+    height:calc(100vh - 65px);
+
+    background:#111;
+
+    padding-top:25px;
+
+    transition:.35s ease;
+
+    z-index:9998;
+}
 
     #nav-menu.active{
         left:0;
@@ -568,6 +566,33 @@ body{
     .contact-map{
         height:250px;
     }
+    .footer-cta{
+    padding:60px 20px;
+}
+
+.footer-cta-content{
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+.footer-left h2{
+    font-size:clamp(2.2rem,9vw,3rem);
+    line-height:1.1;
+}
+
+.footer-right{
+    width:100%;
+    flex-direction:column;
+    gap:15px;
+}
+
+.nav-btn{
+    width:100%;
+    text-align:center;
+    padding:22px 20px;
+    font-size:18px;
+    border-radius:50px;
+}
 }
 
 </style>

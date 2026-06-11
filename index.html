@@ -15,12 +15,11 @@
     <!-- The scroll track container: provides the height/track for scroll -->
     <header id="navbar">
 
-        <a href="about.html" class="logo">
+        <a href="index.html" class="logo">
             <img src="logo.png" alt="Vala Projects Logo">
         </a>
 
-        <!-- Hamburger icon for mobile -->
-        <div class="hamburger" id="hamburger-btn" aria-label="Menu">
+        <div class="hamburger" id="hamburger-btn">
             <span></span>
             <span></span>
             <span></span>
@@ -28,17 +27,17 @@
 
         <nav id="nav-menu">
             <ul>
-                <li><a href="index.html" target="_blank" class="active"><b>HOME</b></a></li>
-                <li><a href="about.html" target="_blank"><b>ABOUT</b></a></li>
-                <li><a href="project.html" target="_blank"><b>PROJECTS</b></a></li>
-                <li><a href="contact.html" target="_blank"><b>CONTACT</b></a></li>
+                <li><a href="index.html" class="active">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="project.html">PROJECTS</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
             </ul>
         </nav>
 
     </header>
-
+    <div id="menu-overlay"></div>
     <div id="animation-container">
-        <!-- Pinned element that stays inside viewport -->
+
         <div id="sticky-wrapper">
 
             <canvas id="animation-canvas"></canvas>

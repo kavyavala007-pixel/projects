@@ -1,563 +1,882 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>About | Vala Projects</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
+    <title>About | Vala Projects</title>
 
-/* =========================
-   RESET
-========================= */
+    <style>
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+        /* =========================
+           RESET
+        ========================= */
 
-html{
-    scroll-behavior:smooth;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body{
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-    background:#f8f6f2;
-    color:#1f252b;
-    overflow-x:hidden;
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-/* =========================
-   NAVBAR
-========================= */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            background: #f8f6f2;
+            color: #1f252b;
+            overflow-x: hidden;
+        }
 
-#navbar{
-    position:fixed;
-    top:15px;
-    left:20px;
-    right:20px;
-    height:55px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:0 20px;
-    z-index:9999;
-}
+        /* =========================
+           NAVBAR
+        ========================= */
 
-#navbar::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    border-radius:22px;
-    background:rgba(255,255,255,0.15);
-    backdrop-filter:blur(20px);
-    -webkit-backdrop-filter:blur(20px);
-    border:1px solid rgba(255,255,255,0.25);
-    box-shadow:0 8px 32px rgba(0,0,0,0.12);
-    opacity:0;
-    transition:opacity .5s ease;
-    z-index:-1;
-}
+        #navbar {
+            position: fixed;
+            top: 15px;
+            left: 20px;
+            right: 20px;
 
-#navbar.scrolled::before{
-    opacity:1;
-}
+            height: 55px;
 
-.logo{
-    text-decoration:none;
-}
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
 
-.logo img{
-    width:180px;
-    display:block;
-    border:none;
-    transition:transform .4s ease;
-}
+            padding: 0 20px;
 
-.logo:hover img{
-    transform:scale(1.08);
-}
+            z-index: 9999;
 
-nav ul{
-    display:flex;
-    list-style:none;
-    gap:40px;
-}
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
 
-nav ul li a{
-    text-decoration:none;
-    color:#1f252b;
-    font-size:16px;
-    font-weight:700;
-    letter-spacing:1px;
-    transition:.3s;
-}
+        #navbar::before {
+            content: "";
+            position: absolute;
+            inset: 0;
 
-nav ul li a:hover{
-    color:#caa86a;
-}
+            border-radius: 22px;
 
-nav ul li a.active{
-    color:#caa86a;
-}
+            background: rgba(255, 255, 255, 0.15);
 
-/* =========================
-   ABOUT HERO
-========================= */
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
 
-.about-hero{
-    padding:160px 8% 120px;
-    text-align:center;
-}
+            border: 1px solid rgba(255, 255, 255, 0.25);
 
-.about-tag{
-    color:#caa86a;
-    letter-spacing:4px;
-    font-size:13px;
-    font-weight:700;
-}
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
 
-.about-hero h1{
-    font-size:clamp(3rem,7vw,6rem);
-    line-height:1;
-    margin:25px 0;
-    font-weight:800;
-}
+            opacity: 0;
+            transition: opacity .5s ease;
 
-.about-hero p{
-    max-width:850px;
-    margin:auto;
-    color:#666;
-    line-height:1.9;
-    font-size:18px;
-}
+            z-index: -1;
+        }
 
-/* =========================
-   STORY SECTION
-========================= */
+        #navbar.scrolled::before {
+            opacity: 1;
+        }
 
-.story{
-    padding:100px 8%;
-    background:#fff;
-}
+        .logo {
+            text-decoration: none;
+        }
 
-.story-grid{
-    max-width:1300px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:70px;
-    align-items:center;
-}
+        .logo img {
+            width: 180px;
+            display: block;
+            border: none;
+            transition: transform .4s ease;
+        }
 
-.story-image{
-    overflow:hidden;
-    border-radius:30px;
-    box-shadow:0 20px 50px rgba(0,0,0,.08);
-}
+        .logo:hover img {
+            transform: scale(1.08);
+        }
 
-.story-image img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-    transition:.8s;
-}
+        /* =========================
+           DESKTOP MENU
+        ========================= */
 
-.story-image:hover img{
-    transform:scale(1.05);
-}
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
 
-.story-content span{
-    color:#caa86a;
-    letter-spacing:4px;
-    font-size:13px;
-    font-weight:700;
-}
+        nav ul li a {
+            text-decoration: none;
+            color: #1f252b;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            transition: .3s;
+        }
 
-.story-content h2{
-    font-size:clamp(2rem,5vw,4rem);
-    margin:20px 0;
-    line-height:1.1;
-    font-weight:800;
-}
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: #caa86a;
+        }
 
-.story-content p{
-    color:#666;
-    line-height:1.9;
-    margin-bottom:18px;
-    font-size:16px;
-}
+        /* =========================
+           HAMBURGER
+        ========================= */
 
-/* =========================
-   VALUES
-========================= */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
 
-.values{
-    padding:100px 8%;
-}
+            width: 30px;
+            height: 22px;
 
-.section-title{
-    text-align:center;
-    margin-bottom:70px;
-}
+            cursor: pointer;
+            z-index: 10001;
+        }
 
-.section-title span{
-    color:#caa86a;
-    letter-spacing:4px;
-    font-size:13px;
-    font-weight:700;
-}
+        .hamburger span {
+            width: 100%;
+            height: 3px;
 
-.section-title h2{
-    font-size:clamp(2rem,4vw,4rem);
-    margin-top:15px;
-    font-weight:800;
-}
+            background: #000;
 
-.values-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:25px;
-}
+            border-radius: 3px;
 
-.value-card{
-    background:#fff;
-    padding:35px;
-    border-radius:24px;
-    box-shadow:0 10px 30px rgba(0,0,0,.05);
-    transition:.4s;
-}
+            transition: 0.3s ease;
+        }
 
-.value-card:hover{
-    transform:translateY(-8px);
-}
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
 
-.value-card h3{
-    color:#caa86a;
-    margin-bottom:15px;
-    font-size:22px;
-}
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
 
-.value-card p{
-    color:#666;
-    line-height:1.8;
-}
-/* =========================
-   FOOTER CTA
-========================= */
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
 
-.footer-cta{
-    background:#2c2925;
-    padding:55px 6%;
-    position:relative;
-    overflow:hidden;
-}
+        /* =========================
+           MENU OVERLAY
+        ========================= */
 
-.footer-cta::before{
-    content:'';
-    position:absolute;
-    width:300px;
-    height:300px;
-    border-radius:50%;
-    background:
-    radial-gradient(
-        rgba(202,168,106,.12),
-        transparent 70%
-    );
-    right:-120px;
-    top:-120px;
-}
+        #menu-overlay {
 
-.footer-cta-content{
-    max-width:1400px;
-    margin:auto;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:40px;
-    position:relative;
-    z-index:2;
-}
+            position: fixed;
 
-.footer-left span{
-    display:block;
-    color:#caa86a;
-    letter-spacing:4px;
-    font-size:12px;
-    font-weight:700;
-    margin-bottom:10px;
-}
+            top: 0;
+            left: 0;
 
-.footer-left h2{
-    color:#fff;
-    font-size:clamp(1.8rem,3vw,2.8rem);
-    line-height:1.2;
-    font-weight:700;
-}
+            width: 100%;
+            height: 100%;
 
-.footer-right{
-    display:flex;
-    gap:12px;
-    flex-wrap:wrap;
-}
+            background: rgba(0, 0, 0, 0.5);
 
-.nav-btn{
-    padding:14px 28px;
-    border-radius:50px;
-    text-decoration:none;
-    color:#d8d1c7;
-    border:1px solid rgba(255,255,255,.08);
-    background:rgba(255,255,255,.03);
-    transition:.35s ease;
-}
+            opacity: 0;
+            visibility: hidden;
 
-.nav-btn:hover{
-    background:#caa86a;
-    color:#fff;
-    border-color:#caa86a;
-}
+            transition: .3s;
 
-.nav-btn.active{
-    background:#caa86a;
-    color:#fff;
-    border-color:#caa86a;
-}
+            z-index: 9997;
+        }
 
-/* =========================
-   MOBILE
-========================= */
+        #menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
 
-@media(max-width:991px){
+        /* =========================
+           ABOUT HERO
+        ========================= */
 
-    .story-grid{
-        grid-template-columns:1fr;
-    }
+        .about-hero {
+            padding: 160px 8% 120px;
+            text-align: center;
+        }
 
-    .values-grid{
-        grid-template-columns:1fr;
-    }
+        .about-tag {
+            color: #caa86a;
+            letter-spacing: 4px;
+            font-size: 13px;
+            font-weight: 700;
+        }
 
-    .footer-cta-content{
-        flex-direction:column;
-        align-items:flex-start;
-    }
-}
+        .about-hero h1 {
+            font-size: clamp(3rem, 7vw, 6rem);
+            line-height: 1;
+            margin: 25px 0;
+            font-weight: 800;
+        }
 
-@media(max-width:768px){
+        .about-hero p {
+            max-width: 850px;
+            margin: auto;
+            color: #666;
+            line-height: 1.9;
+            font-size: 18px;
+        }
 
-    #navbar{
-        left:10px;
-        right:10px;
-        height:60px;
-        padding:0 15px;
-    }
+        /* =========================
+           STORY SECTION
+        ========================= */
 
-    .logo img{
-        width:120px;
-    }
+        .story {
+            padding: 100px 8%;
+            background: #fff;
+        }
 
-    nav ul{
-        gap:12px;
-    }
+        .story-grid {
+            max-width: 1300px;
+            margin: auto;
 
-    nav ul li a{
-        font-size:12px;
-    }
-}
+            display: grid;
+            grid-template-columns: 1fr 1fr;
 
-</style>
+            gap: 70px;
+            align-items: center;
+        }
+
+        .story-image {
+            overflow: hidden;
+            border-radius: 30px;
+
+            box-shadow: 0 20px 50px rgba(0, 0, 0, .08);
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+
+            display: block;
+
+            transition: .8s;
+        }
+
+        .story-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .story-content span {
+            color: #caa86a;
+            letter-spacing: 4px;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .story-content h2 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            margin: 20px 0;
+            line-height: 1.1;
+            font-weight: 800;
+        }
+
+        .story-content p {
+            color: #666;
+            line-height: 1.9;
+            margin-bottom: 18px;
+            font-size: 16px;
+        }
+
+        /* =========================
+           VALUES
+        ========================= */
+
+        .values {
+            padding: 100px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-title span {
+            color: #caa86a;
+            letter-spacing: 4px;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .section-title h2 {
+            font-size: clamp(2rem, 4vw, 4rem);
+            margin-top: 15px;
+            font-weight: 800;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .value-card {
+            background: #fff;
+            padding: 35px;
+            border-radius: 24px;
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .05);
+
+            transition: .4s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .value-card h3 {
+            color: #caa86a;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .value-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+                /* =========================
+           FOOTER CTA
+        ========================= */
+
+        .footer-cta {
+            background: #2c2925;
+            padding: 55px 6%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-cta::before {
+            content: '';
+
+            position: absolute;
+
+            width: 300px;
+            height: 300px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    rgba(202,168,106,.12),
+                    transparent 70%
+                );
+
+            right: -120px;
+            top: -120px;
+        }
+
+        .footer-cta-content {
+            max-width: 1400px;
+
+            margin: auto;
+
+            display: flex;
+
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 40px;
+
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-left span {
+            display: block;
+
+            color: #caa86a;
+
+            letter-spacing: 4px;
+            font-size: 12px;
+            font-weight: 700;
+
+            margin-bottom: 10px;
+        }
+
+        .footer-left h2 {
+            color: #fff;
+
+            font-size: clamp(1.8rem, 3vw, 2.8rem);
+
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .footer-right {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+
+            padding: 14px 28px;
+
+            border-radius: 50px;
+
+            text-decoration: none;
+
+            color: #d8d1c7;
+
+            border: 1px solid rgba(255,255,255,.08);
+
+            background: rgba(255,255,255,.03);
+
+            transition: .35s ease;
+        }
+
+        .nav-btn:hover {
+
+            background: #caa86a;
+
+            color: #fff;
+
+            border-color: #caa86a;
+        }
+
+        .nav-btn.active {
+
+            background: #caa86a;
+
+            color: #fff;
+
+            border-color: #caa86a;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width:991px) {
+
+            .story-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-cta-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        /* =========================
+           MOBILE NAVIGATION
+           SAME AS HOME PAGE
+        ========================= */
+
+        @media (max-width:768px) {
+
+            #navbar {
+
+                top: 0;
+                left: 0;
+                right: 0;
+
+                width: 100%;
+
+                height: 65px;
+
+                padding: 0 18px;
+
+                background: rgba(255,255,255,.15);
+
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+
+                border-radius: 0;
+
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            #navbar::before {
+                display: none;
+            }
+
+            .logo img {
+                width: 130px;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            #nav-menu {
+
+                position: fixed;
+
+                top: 0;
+                left: -280px;
+
+                width: 280px;
+                height: 100vh;
+
+                background: #111;
+
+                padding-top: 90px;
+
+                transition: left .35s ease;
+
+                z-index: 9998;
+            }
+
+            #nav-menu.active {
+                left: 0;
+            }
+
+            #nav-menu ul {
+
+                flex-direction: column;
+
+                gap: 0;
+
+                padding: 0 25px;
+            }
+
+            #nav-menu ul li {
+                width: 100%;
+            }
+
+            #nav-menu ul li a {
+
+                display: block;
+
+                color: #fff;
+
+                font-size: 18px;
+
+                padding: 18px 0;
+
+                border-bottom:
+                    1px solid rgba(255,255,255,.08);
+            }
+
+            #nav-menu ul li a.active {
+                color: #caa86a;
+            }
+
+            .about-hero {
+                padding: 130px 20px 90px;
+            }
+
+            .about-hero p {
+                font-size: 16px;
+            }
+
+            .story {
+                padding: 70px 20px;
+            }
+
+            .values {
+                padding: 70px 20px;
+            }
+
+            .footer-cta {
+                padding: 60px 20px;
+            }
+
+            .footer-right {
+
+                width: 100%;
+
+                flex-direction: column;
+            }
+
+            .nav-btn {
+
+                width: 100%;
+
+                text-align: center;
+            }
+        }
+
+    </style>
+
 </head>
 
 <body>
 
-<header id="navbar">
+    <header id="navbar">
 
-    <a href="index.html" class="logo">
-        <img src="logo.png" alt="Vala Projects Logo">
-    </a>
+        <a href="index.html" class="logo">
+            <img src="logo.png" alt="Vala Projects Logo">
+        </a>
 
-    <nav>
-        <ul>
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="about.html" class="active">ABOUT</a></li>
-            <li><a href="project.html">PROJECTS</a></li>
-            <li><a href="contact.html">CONTACT</a></li>
-        </ul>
-    </nav>
-
-</header>
-
-<!-- ABOUT HERO -->
-
-<section class="about-hero">
-
-    <span class="about-tag">
-        ABOUT VALA PROJECTS
-    </span>
-
-    <h1>
-        Building Trust.<br>
-        Creating Landmarks.
-    </h1>
-
-    <p>
-        At Vala Projects, we believe every development is more than a building.
-        It is a commitment to quality, innovation, transparency and long-term
-        value. Our mission is to create spaces that enhance lifestyles while
-        delivering exceptional experiences for homeowners and investors.
-    </p>
-
-</section>
-
-<!-- STORY -->
-
-<section class="story">
-
-    <div class="story-grid">
-
-        <div class="story-image">
-            <img src="build.png" alt="Construction Site">
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
 
-        <div class="story-content">
+        <nav id="nav-menu">
 
-            <span>OUR STORY</span>
+            <ul>
 
-            <h2>
-                Excellence In Every Foundation
-            </h2>
+                <li>
+                    <a href="index.html">
+                        HOME
+                    </a>
+                </li>
 
-            <p>
-                Vala Projects was established with a vision to redefine urban
-                living through exceptional construction quality and
-                customer-first development.
-            </p>
+                <li>
+                    <a href="about.html" class="active">
+                        ABOUT
+                    </a>
+                </li>
 
-            <p>
-                We focus on creating thoughtfully designed residential spaces
-                that combine modern architecture, functionality and long-term
-                value.
-            </p>
+                <li>
+                    <a href="project.html">
+                        PROJECTS
+                    </a>
+                </li>
 
-            <p>
-                Every project reflects our commitment to trust, quality,
-                transparency and innovation.
-            </p>
+                <li>
+                    <a href="contact.html">
+                        CONTACT
+                    </a>
+                </li>
 
-        </div>
+            </ul>
 
-    </div>
+        </nav>
 
-</section>
+    </header>
 
-<!-- VALUES -->
+    <div id="menu-overlay"></div>
 
-<section class="values">
+    <!-- ABOUT HERO -->
 
-    <div class="section-title">
+    <section class="about-hero">
 
-        <span>OUR VALUES</span>
+        <span class="about-tag">
+            ABOUT VALA PROJECTS
+        </span>
 
-        <h2>What Defines Us</h2>
+        <h1>
+            Building Trust.<br>
+            Creating Landmarks.
+        </h1>
 
-    </div>
+        <p>
+            At Vala Projects, we believe every development is more than a building.
+            It is a commitment to quality, innovation, transparency and long-term
+            value. Our mission is to create spaces that enhance lifestyles while
+            delivering exceptional experiences for homeowners and investors.
+        </p>
 
-    <div class="values-grid">
+    </section>
 
-        <div class="value-card">
-            <h3>Trust</h3>
-            <p>
-                Building strong relationships through transparency and honesty.
-            </p>
-        </div>
+    <!-- STORY -->
 
-        <div class="value-card">
-            <h3>Quality</h3>
-            <p>
-                Delivering excellence through superior construction standards.
-            </p>
-        </div>
-                <div class="value-card">
-            <h3>Innovation</h3>
-            <p>
-                Creating future-ready developments using modern ideas and
-                thoughtful planning.
-            </p>
-        </div>
+    <section class="story">
 
-        <div class="value-card">
-            <h3>Commitment</h3>
-            <p>
-                Ensuring every project is delivered with dedication, precision
-                and care.
-            </p>
-        </div>
+        <div class="story-grid">
 
-    </div>
+            <div class="story-image">
+                <img src="build.png" alt="Construction Site">
+            </div>
 
-</section>
+            <div class="story-content">
 
-<!-- FOOTER CTA -->
+                <span>OUR STORY</span>
 
-<section class="footer-cta">
+                <h2>
+                    Excellence In Every Foundation
+                </h2>
+                                <p>
+                    Vala Projects was established with a vision to redefine urban
+                    living through exceptional construction quality and
+                    customer-first development.
+                </p>
 
-    <div class="footer-cta-content">
+                <p>
+                    We focus on creating thoughtfully designed residential spaces
+                    that combine modern architecture, functionality and long-term
+                    value.
+                </p>
 
-        <div class="footer-left">
+                <p>
+                    Every project reflects our commitment to trust, quality,
+                    transparency and innovation.
+                </p>
 
-            <span>READY TO CONNECT?</span>
-
-            <h2>
-                Let's Build Something<br>
-                Exceptional Together
-            </h2>
+            </div>
 
         </div>
 
-        <div class="footer-right">
+    </section>
 
-            <a href="index.html" class="nav-btn">
-                Home
-            </a>
+    <!-- VALUES -->
 
-            <a href="about.html" class="nav-btn active">
-                About
-            </a>
+    <section class="values">
 
-            <a href="project.html" class="nav-btn">
-                Projects
-            </a>
+        <div class="section-title">
 
-            <a href="contact.html" class="nav-btn">
-                Contact
-            </a>
+            <span>OUR VALUES</span>
+
+            <h2>What Defines Us</h2>
 
         </div>
 
-    </div>
+        <div class="values-grid">
 
-</section>
+            <div class="value-card">
 
-<!-- JAVASCRIPT -->
+                <h3>Trust</h3>
 
-<script>
+                <p>
+                    Building strong relationships through transparency and honesty.
+                </p>
 
-const navbar = document.getElementById("navbar");
+            </div>
 
-window.addEventListener("scroll", function(){
+            <div class="value-card">
 
-    if(window.scrollY > 0){
-        navbar.classList.add("scrolled");
-    }else{
-        navbar.classList.remove("scrolled");
-    }
+                <h3>Quality</h3>
 
-});
+                <p>
+                    Delivering excellence through superior construction standards.
+                </p>
 
-</script>
+            </div>
+
+            <div class="value-card">
+
+                <h3>Innovation</h3>
+
+                <p>
+                    Creating future-ready developments using modern ideas and
+                    thoughtful planning.
+                </p>
+
+            </div>
+
+            <div class="value-card">
+
+                <h3>Commitment</h3>
+
+                <p>
+                    Ensuring every project is delivered with dedication, precision
+                    and care.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER CTA -->
+
+    <section class="footer-cta">
+
+        <div class="footer-cta-content">
+
+            <div class="footer-left">
+
+                <span>READY TO CONNECT?</span>
+
+                <h2>
+                    Let's Build Something<br>
+                    Exceptional Together
+                </h2>
+
+            </div>
+
+            <div class="footer-right">
+
+                <a href="index.html" class="nav-btn">
+                    Home
+                </a>
+
+                <a href="about.html" class="nav-btn active">
+                    About
+                </a>
+
+                <a href="project.html" class="nav-btn">
+                    Projects
+                </a>
+
+                <a href="contact.html" class="nav-btn">
+                    Contact
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        /* =========================
+           NAVBAR SCROLL EFFECT
+        ========================= */
+
+        const navbar = document.getElementById("navbar");
+
+        window.addEventListener("scroll", () => {
+
+            if (window.scrollY > 0) {
+
+                navbar.classList.add("scrolled");
+
+            } else {
+
+                navbar.classList.remove("scrolled");
+
+            }
+
+        });
+
+        /* =========================
+           MOBILE MENU
+           SAME AS HOME PAGE
+        ========================= */
+
+        const hamburger = document.getElementById("hamburger");
+        const navMenu = document.getElementById("nav-menu");
+        const overlay = document.getElementById("menu-overlay");
+
+        hamburger.addEventListener("click", () => {
+
+            hamburger.classList.toggle("active");
+
+            navMenu.classList.toggle("active");
+
+            overlay.classList.toggle("active");
+
+        });
+
+        function closeMenu() {
+
+            hamburger.classList.remove("active");
+
+            navMenu.classList.remove("active");
+
+            overlay.classList.remove("active");
+
+        }
+
+        overlay.addEventListener("click", closeMenu);
+
+        document.querySelectorAll("#nav-menu a").forEach(link => {
+
+            link.addEventListener("click", closeMenu);
+
+        });
+
+    </script>
 
 </body>
+
 </html>

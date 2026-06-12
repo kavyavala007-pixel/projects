@@ -49,7 +49,9 @@
 
             padding: 0 20px;
 
-            z-index: 9999;
+            z-index: 10000;
+
+isolation: isolate;
 
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
         }
@@ -132,7 +134,7 @@
             height: 22px;
 
             cursor: pointer;
-            z-index: 10001;
+            z-index: 10002;
         }
 
         .hamburger span {
@@ -484,8 +486,8 @@
 
                 padding: 0 18px;
 
-                background: rgba(255,255,255,.15);
-
+                background: rgba(255,255,255,.92);
+                box-shadow: 0 8px 25px rgba(0,0,0,.15);
                 backdrop-filter: blur(20px);
                 -webkit-backdrop-filter: blur(20px);
 
@@ -512,11 +514,11 @@
 
                 position: fixed;
 
-                top: 0;
+                 top: 65px;
                 left: -280px;
 
                 width: 280px;
-                height: 100vh;
+                height: calc(100vh - 65px);
 
                 background: #111;
 
@@ -648,8 +650,6 @@
     </nav>
 
 </header>
-
-<div id="menu-overlay"></div>
 
     <div id="menu-overlay"></div>
 

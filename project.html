@@ -27,7 +27,7 @@ header{
 
     padding:0 25px;
 
-    z-index:9999;
+    z-index:10002;
 
     border-radius:22px;
 
@@ -156,7 +156,7 @@ body{
 
     cursor:pointer;
 
-    z-index:10001;
+    z-index:9998;
 }
 
 .hamburger span{
@@ -267,24 +267,26 @@ body{
         display:flex;
     }
 
-    header{
-        top:0;
-        left:0;
-        right:0;
+header{
+    top:0;
+    left:0;
+    right:0;
 
-        height:65px;
+    height:65px;
 
-        padding:0 18px;
+    padding:0 18px;
 
-        border-radius:0;
+    border-radius:0;
 
-        background:rgba(255,255,255,.15);
+    background:rgba(255,255,255,0.92);
 
-        backdrop-filter:blur(20px);
-        -webkit-backdrop-filter:blur(20px);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
 
-        border:none;
-    }
+    border-bottom:1px solid rgba(0,0,0,0.08);
+
+    box-shadow:0 8px 25px rgba(0,0,0,0.15);
+}
 
     .logo img{
         width:130px;
@@ -542,10 +544,13 @@ body{
 .footer-cta-content{
     max-width:1400px;
     margin:auto;
+
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:40px;
+
+    gap:80px;
+
     position:relative;
     z-index:2;
 }
@@ -567,8 +572,14 @@ body{
 }
 
 .nav-btn{
-    padding:14px 28px;
+    padding:14px 22px;
     border-radius:50px;
+
+    min-width:140px;
+
+    text-align:center;
+    box-sizing:border-box;
+
     text-decoration:none;
     font-size:15px;
     font-weight:600;
@@ -577,7 +588,12 @@ body{
     background:rgba(255,255,255,.03);
     transition:.35s ease;
 }
-
+.footer-right{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    flex-wrap:nowrap;
+}
 .nav-btn:hover{
     background:#caa86a;
     color:#fff;
@@ -607,10 +623,18 @@ body{
         letter-spacing:5px;
     }
 
-    .footer-left h2{
-    font-size:2rem;
-    line-height:1.15;
-    margin-bottom:20px;
+.footer-left h2{
+    color:#fff;
+    font-size:clamp(1.6rem,2.6vw,2.5rem);
+}
+.footer-left{
+    flex:1;
+}
+
+.footer-right{
+    display:flex;
+    gap:18px;
+    flex-shrink:0;
 }
 
     .footer-right{

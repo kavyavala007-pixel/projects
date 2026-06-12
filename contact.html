@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Contact | Vala Projects</title>
+
 
 <style>
 
@@ -81,10 +80,6 @@ body{
     transform:scale(1.08);
 }
 
-/* ==========================
-   DESKTOP NAVIGATION
-========================== */
-
 #nav-menu ul{
     display:flex;
     list-style:none;
@@ -104,7 +99,6 @@ body{
 #nav-menu ul li a.active{
     color:#caa86a;
 }
-
 /* ==========================
    HAMBURGER
 ========================== */
@@ -116,7 +110,7 @@ body{
     width:30px;
     height:22px;
     cursor:pointer;
-    z-index:10001;
+    z-index:10002;
 }
 
 .hamburger span{
@@ -140,15 +134,12 @@ body{
 }
 
 /* ==========================
-   MENU OVERLAY
+   OVERLAY
 ========================== */
 
 #menu-overlay{
     position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
+    inset:0;
     background:rgba(0,0,0,.5);
     opacity:0;
     visibility:hidden;
@@ -160,7 +151,6 @@ body{
     opacity:1;
     visibility:visible;
 }
-
 /* ==========================
    HERO
 ========================== */
@@ -221,7 +211,7 @@ body{
 ========================== */
 
 .contact-block{
-    padding:120px 7%;
+    padding:80px 7%;
 }
 
 .contact-grid{
@@ -250,20 +240,11 @@ body{
     line-height:2;
 }
 
-.contact-map{
+.contact-image img{
     width:100%;
-    height:300px;
-    border-radius:20px;
-    overflow:hidden;
-    box-shadow:0 15px 35px rgba(0,0,0,.12);
-    border:1px solid rgba(0,0,0,.08);
-}
-
-.contact-map iframe{
-    width:100%;
-    height:100%;
-    border:none;
     display:block;
+    border-radius:30px;
+    box-shadow:0 20px 50px rgba(0,0,0,.08);
 }
 /* ==========================
    CONTACT NUMBERS
@@ -291,16 +272,15 @@ body{
     line-height:1.1;
 }
 
-.phone-single{
-    display:flex;
-    justify-content:center;
+.phone-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
 }
 
 .phone-card{
     background:#fff;
-    max-width:500px;
-    width:100%;
-    padding:30px 40px;
+    padding:50px;
     border-radius:30px;
     text-align:center;
     box-shadow:0 15px 40px rgba(0,0,0,.08);
@@ -311,13 +291,29 @@ body{
     transform:translateY(-6px);
 }
 
+
 .phone-card p{
-    font-size:18px;
+    font-size:24px;
     color:#caa86a;
-    font-weight:600;
-    margin:0;
+    font-weight:800;
+}
+.phone-single{
+    display:flex;
+    justify-content:center;
 }
 
+.phone-card{
+    max-width:500px; /* slimmer box */
+    width:100%;
+    padding:30px 40px;
+}
+
+.phone-card p{
+    font-size:28px;
+    color:#caa86a;
+    font-weight:800;
+    margin:0;
+}
 /* ==========================
    EMAIL SECTION
 ========================== */
@@ -349,7 +345,7 @@ body{
 
     font-size:24px;
     font-weight:800;
-    color:#caa86a;
+    color:#1f252b;
 
     transition:.35s ease;
 }
@@ -398,18 +394,16 @@ body{
 .footer-left span{
     display:block;
     color:#caa86a;
-    font-size:12px;
-    letter-spacing:4px;
+    font-size:14px;
+    letter-spacing:5px;
     font-weight:700;
     margin-bottom:10px;
 }
 
 .footer-left h2{
     color:#f8f6f2;
-    font-size:clamp(2rem,4vw,3rem);
-    line-height:1.15;
-    font-weight:700;
-    max-width:650px;
+    font-size:clamp(1.8rem,4vw,2.8rem);
+    max-width:500px;
 }
 
 .footer-right{
@@ -443,137 +437,160 @@ body{
 }
 
 /* ==========================
-   TABLET
+   MOBILE
 ========================== */
-
 @media(max-width:900px){
 
-    .contact-grid{
-        grid-template-columns:1fr;
-    }
-
     .footer-cta-content{
         flex-direction:column;
         align-items:flex-start;
     }
 }
-/* ==========================
-   MOBILE NAVIGATION
-========================== */
 
 @media(max-width:768px){
-
-    .footer-cta{
-        padding:35px 20px;
-    }
-
-    .footer-cta-content{
-        flex-direction:column;
-        align-items:flex-start;
-    }
-
-    .footer-left span{
-        font-size:13px;
-        letter-spacing:4px;
-    }
-
-    .footer-left h2{
-        font-size:1.75rem;
-        line-height:1.15;
-        margin-bottom:20px;
-    }
-
-    .footer-right{
-        width:100%;
-        display:flex;
-        flex-direction:column;
-        gap:10px;
-    }
-
-    .nav-btn{
-        width:100%;
-        height:56px;
-
-        display:flex;
-        align-items:center;
-        justify-content:center;
-
-        padding:0;
-
-        font-size:16px;
-        font-weight:500;
-
-        border-radius:35px;
-    }
+.footer-cta{
+    padding:45px 20px;
+}
+.contact-grid{
+    grid-template-columns:1fr;
+    gap:30px;
 }
 
-    #navbar::before{
-        display:none;
+.contact-text{
+    order:1;
+}
+
+.contact-map{
+    order:2;
+
+    width:100%;
+    height:280px;
+
+    max-width:100%;
+}
+.footer-cta-content{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:30px;
+}
+
+.footer-left h2{
+    font-size:28px;
+    line-height:1.15;
+    max-width:500px;
+}
+
+.footer-right{
+
+    width:100%;
+
+    flex-direction:column;
+
+}
+
+.nav-btn{
+
+    width:100%;
+
+    text-align:center;
+
+}
+    #navbar{
+        left:10px;
+        right:10px;
+        height:60px;
+        padding:0 15px;
     }
 
-    .logo img{
-        width:130px;
-    }
-
+.logo img{
+    width:130px;
+}
     .hamburger{
-        display:flex;
-    }
+    display:flex;
+}
 
-    #nav-menu{
+#navbar{
+    top:0;
+    left:0;
+    right:0;
+    width:100%;
+    height:65px;
+    padding:0 18px;
+    border-radius:0;
+    background:rgba(255,255,255,.92);
+}
+
+.logo img{
+    width:130px;
+}
+
+#nav-menu{
     position:fixed;
 
     top:65px;
+    left:-280px;
 
-    left:-80%;
-
-    width:80%;
-
+    width:280px;
     height:calc(100vh - 65px);
 
     background:#111;
 
-    padding-top:25px;
+    padding-top:90px;
 
-    transition:.35s ease;
+    transition:left .35s ease;
 
     z-index:9998;
+
+    overflow-y:auto;
+}
+html,
+
+body{
+
+    width:100%;
+
+    overflow-x:hidden;
+
 }
 
-    #nav-menu.active{
-        left:0;
-    }
+*{
 
-    #nav-menu ul{
-        flex-direction:column;
-        gap:0;
-        padding:0 25px;
-    }
+    max-width:100%;
 
-    #nav-menu ul li{
-        width:100%;
-    }
+}
 
-    #nav-menu ul li a{
+#nav-menu.active{
+    left:0;
+}
 
+#nav-menu ul{
+    flex-direction:column;
+    gap:0;
+    padding:0 25px;
+}
+
+#nav-menu ul li{
+    width:100%;
+}
+
+#nav-menu ul li a{
     display:block;
-
     color:#fff;
-
     font-size:18px;
-
-    font-weight:600;
-
     padding:18px 0;
-
     border-bottom:1px solid rgba(255,255,255,.08);
 }
 
-    #nav-menu ul li a.active{
-        color:#caa86a;
-    }
+#nav-menu ul li a.active{
+    color:#caa86a;
+}
 
     .phone-card{
         padding:35px 20px;
+    }
+
+    .phone-card h3{
+        font-size:24px;
     }
 
     .phone-card p{
@@ -584,40 +601,42 @@ body{
         font-size:18px;
         padding:25px;
     }
-
-    .contact-map{
-        height:250px;
-    }
-.footer-cta{
-    padding:30px 20px;
 }
-
-.footer-cta-content{
-    flex-direction:column;
-    align-items:flex-start;
-}
-
-.footer-left h2{
-    font-size:clamp(2.2rem,9vw,3rem);
-    line-height:1.1;
-}
-
-.footer-right{
+.contact-map{
     width:100%;
-    flex-direction:column;
-    gap:15px;
+    max-width:900px;
+    height:300px;
+
+    border-radius:20px;
+    overflow:hidden;
+
+    box-shadow:0 15px 35px rgba(0,0,0,0.12);
+    border:1px solid rgba(0,0,0,0.08);
 }
 
-.nav-btn{
+.contact-map iframe{
     width:100%;
-    text-align:center;
-    padding:22px 20px;
-    font-size:18px;
-    border-radius:50px;
+    height:100%;
+    border:none;
+    display:block;
+}
+.contact-hero{
+    min-height:60vh;
+    padding:110px 20px 70px;
 }
 
+.contact-hero h1{
+    font-size:60px;
+}
+
+.contact-hero p{
+    font-size:16px;
+}
+#navbar{
+    position:fixed;
+    z-index:10000;
+}
 </style>
-
 </head>
 
 <body>
@@ -635,12 +654,23 @@ body{
     </div>
 
     <nav id="nav-menu">
+
         <ul>
+
             <li><a href="index.html">HOME</a></li>
+
             <li><a href="about.html">ABOUT</a></li>
+
             <li><a href="project.html">PROJECTS</a></li>
-            <li><a href="contact.html" class="active">CONTACT</a></li>
+
+            <li>
+                <a href="contact.html" class="active">
+                    CONTACT
+                </a>
+            </li>
+
         </ul>
+
     </nav>
 
 </header>
@@ -664,6 +694,9 @@ body{
     </div>
 
 </section>
+<!-- ==========================
+     ADDRESS SECTION
+========================== -->
 
 <section class="contact-block">
 
@@ -683,20 +716,21 @@ body{
 
         </div>
 
-        <div class="contact-map">
-
-            <iframe
-                src="https://maps.google.com/maps?q=Kandivali%20West%20Mumbai&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                loading="lazy"
-                allowfullscreen>
-            </iframe>
-
-        </div>
+       <div class="contact-map">
+    <iframe
+        src="https://maps.google.com/maps?q=Kandivali%20West%20Mumbai&t=&z=15&ie=UTF8&iwloc=&output=embed"
+        loading="lazy"
+        allowfullscreen>
+    </iframe>
+</div>
 
     </div>
 
 </section>
 
+<!-- ==========================
+     CONTACT NUMBERS
+========================== -->
 <section class="phone-section">
 
     <div class="section-heading">
@@ -711,13 +745,18 @@ body{
 
         <div class="phone-card">
 
-            <p>+91 98765 43210</p>
+            <p>
+                +91 98765 43210
+            </p>
 
         </div>
 
     </div>
 
 </section>
+<!-- ==========================
+     EMAIL SECTION
+========================== -->
 
 <section class="email-section">
 
@@ -727,11 +766,15 @@ body{
 
     <div class="email-box">
 
-        info@valaprojects.vip
+        info@valaprojects.com
 
     </div>
 
 </section>
+
+<!-- ==========================
+     FOOTER CTA
+========================== -->
 
 <section class="footer-cta">
 
@@ -749,13 +792,21 @@ body{
 
         <div class="footer-right">
 
-            <a href="index.html" class="nav-btn">Home</a>
+            <a href="index.html" class="nav-btn">
+                Home
+            </a>
 
-            <a href="about.html" class="nav-btn">About</a>
+            <a href="about.html" class="nav-btn">
+                About
+            </a>
 
-            <a href="project.html" class="nav-btn">Projects</a>
+            <a href="project.html" class="nav-btn">
+                Projects
+            </a>
 
-            <a href="contact.html" class="nav-btn active">Contact</a>
+            <a href="contact.html" class="nav-btn active">
+                Contact
+            </a>
 
         </div>
 
@@ -767,7 +818,7 @@ body{
 
 const navbar = document.getElementById("navbar");
 
-window.addEventListener("scroll", () => {
+window.addEventListener("scroll", function(){
 
     if(window.scrollY > 0){
         navbar.classList.add("scrolled");

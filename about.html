@@ -99,11 +99,11 @@
            DESKTOP MENU
         ========================= */
 
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 40px;
-        }
+#nav-menu ul{
+    display:flex;
+    align-items:center;
+    gap:40px;
+}
 
         nav ul li a {
             text-decoration: none;
@@ -215,7 +215,7 @@
             margin: auto;
             color: #666;
             line-height: 1.9;
-            font-size: 18px;
+            font-size: 16px;
         }
 
         /* =========================
@@ -603,51 +603,53 @@
 
 <body>
 
-    <header id="navbar">
+<header id="navbar">
 
-        <a href="index.html" class="logo">
-            <img src="logo.png" alt="Vala Projects Logo">
-        </a>
+    <a href="index.html" class="logo">
+        <img src="logo.png" alt="Vala Projects Logo">
+    </a>
 
-        <div class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+    <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 
-        <nav id="nav-menu">
+    <nav id="nav-menu">
 
-            <ul>
+        <ul>
 
-                <li>
-                    <a href="index.html">
-                        HOME
-                    </a>
-                </li>
+            <li type="none">
+                <a href="index.html">
+                    HOME
+                </a>
+            </li>
 
-                <li>
-                    <a href="about.html" class="active">
-                        ABOUT
-                    </a>
-                </li>
+            <li type="none">
+                <a href="about.html" class="active">
+                    ABOUT
+                </a>
+            </li>
 
-                <li>
-                    <a href="project.html">
-                        PROJECTS
-                    </a>
-                </li>
+            <li type="none">
+                <a href="project.html">
+                    PROJECTS
+                </a>
+            </li>
 
-                <li>
-                    <a href="contact.html">
-                        CONTACT
-                    </a>
-                </li>
+            <li type="none">
+                <a href="contact.html">
+                    CONTACT
+                </a>
+            </li>
 
-            </ul>
+        </ul>
 
-        </nav>
+    </nav>
 
-    </header>
+</header>
+
+<div id="menu-overlay"></div>
 
     <div id="menu-overlay"></div>
 

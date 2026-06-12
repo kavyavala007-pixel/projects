@@ -1,18 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Projects</title>
+<title>Projects </title>
+
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+/* =====================================
+   NAVBAR
+===================================== */
 
-/* ==========================
-   RESET
-========================== */
+header{
+    position:fixed;
+    top:15px;
+    left:20px;
+    right:20px;
+
+    height:55px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:0 25px;
+
+    z-index:9999;
+
+    border-radius:22px;
+
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    box-shadow:0 8px 25px rgba(0,0,0,.12);
+}
+
+ .logo{
+    display:inline-block;
+}
+
+.logo img{
+    width:180px;
+    height:auto;
+    display:block;
+
+    transition:
+        transform .4s ease,
+        filter .4s ease;
+}
+
+.logo:hover img{
+    transform:scale(1.12);
+    filter:drop-shadow(0 10px 20px rgba(0,0,0,.15));
+}
+
+nav ul{
+    display:flex;
+    align-items:center;
+    gap:40px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:#1f252b;
+    font-size:16px;
+    font-weight:700;
+    letter-spacing:1px;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:#caa86a;
+}
+
+
+    @media(max-width:768px){
+
+    header{
+        padding:0 18px;
+        height:65px;
+    }
+
+    .logo img{
+        width:130px;
+        height:auto;
+    }
+
+    nav ul{
+        gap:18px;
+    }
+
+    nav ul li a{
+        font-size:11px;
+    }
+}
 
 *{
     margin:0;
@@ -32,158 +118,6 @@ body{
 }
 
 /* ==========================
-   GLASS NAVBAR
-========================== */
-
-#navbar{
-    position:fixed;
-    top:0;
-    left:0;
-    right:0;
-
-    width:100%;
-    height:65px;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    padding:0 18px;
-
-    background:rgba(255,255,255,0.15);
-
-    backdrop-filter:blur(20px);
-    -webkit-backdrop-filter:blur(20px);
-
-    z-index:10001;
-}
-
-
-/* ==========================
-   LOGO
-========================== */
-
-.logo{
-    text-decoration:none;
-}
-
-.logo img{
-    width:180px;
-    display:block;
-    border:none;
-
-    transition:transform .4s ease;
-}
-
-.logo:hover img{
-    transform:scale(1.08);
-}
-
-/* ==========================
-   DESKTOP MENU
-========================== */
-
-nav ul{
-    display:flex;
-    list-style:none;
-    gap:40px;
-}
-
-nav ul li a{
-    text-decoration:none;
-    color:#000;
-    font-size:16px;
-    font-weight:700;
-    letter-spacing:1px;
-    transition:.3s;
-}
-
-nav ul li a:hover{
-    color:#caa86a;
-}
-
-nav ul li a.active{
-    color:#caa86a;
-}
-
-/* ==========================
-
-   HAMBURGER
-
-========================== */
-
-.hamburger{
-
-    display:none;   /* Hide on desktop */
-
-    flex-direction:column;
-
-    justify-content:space-between;
-
-    width:30px;
-
-    height:22px;
-
-    cursor:pointer;
-
-    z-index:10001;
-
-}
-
-.hamburger span{
-    width:100%;
-    height:3px;
-
-    background:#000;
-
-    border-radius:3px;
-
-    transition:.3s ease;
-}
-
-.hamburger.active span:nth-child(1){
-
-    transform:translateY(9px) rotate(45deg);
-
-}
-.hamburger.active span:nth-child(2){
-    opacity:0;
-}
-
-.hamburger.active span:nth-child(3){
-    transform:translateY(-9px) rotate(-45deg);
-}
-
-/* ==========================
-   OVERLAY
-========================== */
-
-#menu-overlay{
-
-    position:fixed;
-
-    top:0;
-    left:0;
-
-    width:100%;
-    height:100%;
-
-    background:rgba(0,0,0,.35);
-
-    opacity:0;
-    visibility:hidden;
-
-    transition:.3s;
-
-    z-index:9999;
-}
-
-#menu-overlay.active{
-    opacity:1;
-    visibility:visible;
-}
-
-/* ==========================
    ANIMATION
 ========================== */
 
@@ -199,21 +133,169 @@ nav ul li a.active{
 }
 
 @keyframes float{
-
     0%,100%{
         transform:translateY(0);
     }
-
     50%{
         transform:translateY(20px);
     }
+}
+/*mobile navigation*/
+/* ==========================
+   MOBILE MENU
+========================== */
+.hamburger{
+    display:none;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    width:30px;
+    height:22px;
+
+    cursor:pointer;
+
+    z-index:10001;
+}
+
+.hamburger span{
+    width:100%;
+    height:3px;
+
+    background:#000;
+
+    border-radius:3px;
+
+    transition:.3s ease;
+}
+
+.hamburger.active span:nth-child(1){
+    transform:translateY(9px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2){
+    opacity:0;
+}
+
+.hamburger.active span:nth-child(3){
+    transform:translateY(-9px) rotate(-45deg);
+}
+.mobile-menu{
+    position:fixed;
+    top:0;
+    left:-280px;
+
+    width:280px;
+    height:100vh;
+
+    background:#111;
+
+    padding-top:90px;
+
+    transition:left .35s ease;
+
+    z-index:10001;
+}
+.mobile-menu{
+    background:#111;
+}
+.mobile-menu.active{
+    left:0;
+}
+
+.mobile-menu ul{
+    list-style:none;
+}
+
+.mobile-menu ul li a{
+    display:block;
+
+    color:#fff;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    padding:22px 0 22px 25px;
+
+    text-decoration:none;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+    box-sizing:border-box;
+}
+
+
+.mobile-menu ul li a.active{
+    color:#caa86a;
+}
+
+.menu-overlay{
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100vh;
+
+    background:rgba(0,0,0,.55);
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:.3s;
+
+    z-index:9997;
+}
+
+.menu-overlay.active{
+    opacity:1;
+    visibility:visible;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .desktop-nav{
+        display:none;
+    }
+
+    .hamburger{
+        display:flex;
+    }
+
+    header{
+        top:0;
+        left:0;
+        right:0;
+
+        height:65px;
+
+        padding:0 18px;
+
+        border-radius:0;
+
+        background:rgba(255,255,255,.15);
+
+        backdrop-filter:blur(20px);
+        -webkit-backdrop-filter:blur(20px);
+
+        border:none;
+    }
+
+    .logo img{
+        width:130px;
+    }
+
 }
 /* ==========================
    HERO
 ========================== */
 
 .hero{
-     padding-top:65px;
     min-height:100vh;
 
     background:
@@ -238,23 +320,17 @@ nav ul li a.active{
 
 .hero::before{
     content:'';
-
     position:absolute;
-
     width:500px;
     height:500px;
-
     border-radius:50%;
-
     background:
     radial-gradient(
         rgba(202,168,106,.25),
         transparent 70%
     );
-
     right:-150px;
     top:-150px;
-
     animation:float 8s infinite ease-in-out;
 }
 
@@ -266,63 +342,43 @@ nav ul li a.active{
 
 .hero-tag{
     display:inline-block;
-
     color:#caa86a;
-
     letter-spacing:5px;
     font-size:13px;
     font-weight:700;
-
     margin-bottom:25px;
 }
 
 .hero h1{
     font-size:clamp(3.5rem,8vw,7rem);
-
     line-height:1;
-
     color:#fff;
-
     font-weight:800;
-
     margin-bottom:25px;
 }
 
 .hero p{
     font-size:20px;
-
     color:#e5e5e5;
-
     line-height:1.8;
-
     max-width:700px;
-
     margin-bottom:40px;
 }
 
 .hero-btn{
     display:inline-block;
-
     padding:16px 35px;
-
     border-radius:50px;
-
     background:#caa86a;
-
     color:#fff;
-
     text-decoration:none;
-
     font-weight:700;
-
     transition:.3s;
 }
 
 .hero-btn:hover{
     transform:translateY(-4px);
-
-    box-shadow:
-    0 15px 35px rgba(202,168,106,.35);
+    box-shadow:0 15px 35px rgba(202,168,106,.35);
 }
 
 /* ==========================
@@ -331,30 +387,19 @@ nav ul li a.active{
 
 .featured-project{
     padding:120px 6%;
-
     display:grid;
-
     grid-template-columns:.8fr 1.2fr;
-
     gap:70px;
-
     align-items:center;
 }
 
 .project-image{
     max-width:420px;
-
     width:100%;
-
     margin:auto;
-
     overflow:hidden;
-
     border-radius:30px;
-
-    box-shadow:
-    0 20px 50px rgba(0,0,0,.12);
-
+    box-shadow:0 20px 50px rgba(0,0,0,.12);
     transition:.4s;
 }
 
@@ -364,9 +409,7 @@ nav ul li a.active{
 
 .project-image img{
     width:100%;
-
     display:block;
-
     transition:.8s;
 }
 
@@ -376,27 +419,20 @@ nav ul li a.active{
 
 .project-content span{
     color:#caa86a;
-
     letter-spacing:4px;
-
     font-size:13px;
-
     font-weight:700;
 }
 
 .project-content h2{
     font-size:clamp(2.5rem,5vw,4.5rem);
-
     margin:18px 0 25px;
-
     line-height:1.1;
 }
 
 .project-content p{
     color:#666;
-
     line-height:1.9;
-
     font-size:17px;
 }
 
@@ -404,24 +440,16 @@ nav ul li a.active{
 
 .project-details{
     width:100%;
-
     margin-top:40px;
 }
 
 .detail{
     width:100%;
-
     background:#fff;
-
     border-radius:22px;
-
     padding:40px;
-
     text-align:center;
-
-    box-shadow:
-    0 15px 40px rgba(0,0,0,.08);
-
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
     transition:.4s;
 }
 
@@ -431,19 +459,14 @@ nav ul li a.active{
 
 .detail h4{
     color:#caa86a;
-
     font-size:15px;
-
     letter-spacing:3px;
-
     margin-bottom:12px;
 }
 
 .detail p{
     color:#1f252b;
-
     font-size:24px;
-
     font-weight:800;
 }
 
@@ -482,169 +505,194 @@ nav ul li a.active{
         font-size:20px;
     }
 }
+/**/
+/* ==========================
+   FOOTER CTA
+========================== */
 
+.footer-cta{
+    background:
+    linear-gradient(
+        90deg,
+        #26211d 0%,
+        #302922 55%,
+        #26211d 100%
+    );
+
+    padding:55px 6%;
+    position:relative;
+    overflow:hidden;
+}
+
+.footer-cta::before{
+    content:'';
+    position:absolute;
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    background:
+    radial-gradient(
+        rgba(202,168,106,.12),
+        transparent 70%
+    );
+    right:-120px;
+    top:-120px;
+}
+
+.footer-cta-content{
+    max-width:1400px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:40px;
+    position:relative;
+    z-index:2;
+}
+
+.footer-left span{
+    display:block;
+    color:#caa86a;
+    font-size:12px;
+    letter-spacing:4px;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.footer-left h2{
+    color:#fff;
+    font-size:clamp(1.8rem,3vw,2.8rem);
+    line-height:1.2;
+    font-weight:700;
+}
+
+.nav-btn{
+    padding:14px 28px;
+    border-radius:50px;
+    text-decoration:none;
+    font-size:15px;
+    font-weight:600;
+    color:#d8d1c7;
+    border:1px solid rgba(255,255,255,.08);
+    background:rgba(255,255,255,.03);
+    transition:.35s ease;
+}
+
+.nav-btn:hover{
+    background:#caa86a;
+    color:#fff;
+    border-color:#caa86a;
+    transform:translateY(-2px);
+}
+
+.nav-btn.active{
+    background:#caa86a;
+    color:#fff;
+    border-color:#caa86a;
+    box-shadow:0 10px 25px rgba(202,168,106,.25);
+}
 @media(max-width:768px){
 
-    #navbar{
-
-        position:fixed;
-        top:0;
-        left:0;
-        right:0;
-
-        width:100%;
-        height:65px;
-
-        padding:0 18px;
-
-        background:rgba(255,255,255,0.15);
-
-        backdrop-filter:blur(20px);
-        -webkit-backdrop-filter:blur(20px);
-
-        border-bottom:1px solid rgba(255,255,255,0.2);
-
-        box-shadow:
-            0 8px 25px rgba(0,0,0,0.12);
-
-        z-index:10001;
-    }
-    .hamburger{
-    display:flex;
+    .footer-cta{
+    padding:35px 20px;
 }
-    #navbar::before{
-        content:"";
-        position:absolute;
-        inset:0;
 
-        background:rgba(255,255,255,0.12);
-
-        backdrop-filter:blur(20px);
-        -webkit-backdrop-filter:blur(20px);
-
-        z-index:-1;
-    }
-
-    .logo img{
-        width:130px;
-    }
-
-    .hamburger{
-        display:flex;
-    }
-
-    #nav-menu{
-
-        position:fixed;
-
-        top:0;
-        left:-100%;
-
-        width:280px;
-        height:100vh;
-
-        background:rgba(0,0,0,0.92);
-
-        backdrop-filter:blur(20px);
-        -webkit-backdrop-filter:blur(20px);
-
-        box-shadow:
-            10px 0 40px rgba(0,0,0,0.35);
-
-        padding-top:90px;
-
-        transition:left .4s ease;
-
-        z-index:10000;
-    }
-
-    #nav-menu.active{
-        left:0;
-    }
-
-    #nav-menu ul{
+    .footer-cta-content{
         flex-direction:column;
-        gap:0;
-        padding:0 25px;
+        align-items:flex-start;
     }
 
-    #nav-menu ul li{
+    .footer-left span{
+        font-size:14px;
+        letter-spacing:5px;
+    }
+
+    .footer-left h2{
+    font-size:2rem;
+    line-height:1.15;
+    margin-bottom:20px;
+}
+
+    .footer-right{
         width:100%;
+        display:flex;
+        flex-direction:column;
+        gap:10px;
     }
 
-    #nav-menu ul li a{
+    .nav-btn{
+        width:100%;
+        height:56px;
 
-        display:block;
+        display:flex;
+        align-items:center;
+        justify-content:center;
 
-        color:#fff;
+        padding:0;
 
         font-size:18px;
+        font-weight:500;
 
-        font-weight:700;
-
-        letter-spacing:1px;
-
-        padding:18px 0;
-
-        border-bottom:1px solid rgba(255,255,255,.08);
+        border-radius:40px;
     }
-
-    #nav-menu ul li a.active{
-        color:#caa86a;
-    }
+}
+nav ul li a.active{
+    color:#caa86a;
 }
 </style>
 </head>
-
 <body>
-
 <header id="navbar">
 
     <a href="index.html" class="logo">
         <img src="logo.png" alt="Vala Projects Logo">
     </a>
 
-    <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-
-    <nav id="nav-menu">
-
+    <nav class="desktop-nav">
         <ul>
-
-            <li>
-                <a href="index.html">
-                    HOME
-                </a>
-            </li>
-
-            <li>
-                <a href="about.html">
-                    ABOUT
-                </a>
-            </li>
-
-            <li>
-                <a href="project.html" class="active">
-                    PROJECTS
-                </a>
-            </li>
-
-            <li>
-                <a href="contact.html">
-                    CONTACT
-                </a>
-            </li>
-
+            <li type="none"><a href="index.html">HOME</a></li>
+            <li type="none"><a href="about.html">ABOUT</a></li>
+            <li type="none"><a href="project.html" class="active">PROJECTS</a></li>
+            <li type="none"><a href="contact.html">CONTACT</a></li>
         </ul>
-
     </nav>
 
-</header>
+<div class="hamburger" id="hamburger">
 
-<div id="menu-overlay"></div>
+    <span></span>
+    <span></span>
+    <span></span>
+
+</div>
+
+</header>
+<div class="menu-overlay" id="menuOverlay"></div>
+<div class="mobile-menu" id="mobileMenu">
+
+
+    <ul>
+
+        <li>
+            <a href="index.html">HOME</a>
+        </li>
+
+        <li>
+            <a href="about.html">ABOUT</a>
+        </li>
+
+        <li>
+            <a href="project.html" class="active">
+                PROJECTS
+            </a>
+        </li>
+
+        <li>
+            <a href="contact.html">CONTACT</a>
+        </li>
+
+    </ul>
+
+</div>
 
 <!-- HERO -->
 
@@ -657,7 +705,7 @@ nav ul li a.active{
         </span>
 
         <h1>
-            Vala Highlights
+            Vala Heights
         </h1>
 
         <p>
@@ -686,7 +734,7 @@ nav ul li a.active{
 
         <span>FEATURED PROJECT</span>
 
-        <h2>OM SHREE GANESH CHS.</h2>
+        <h2>OM SHREE GANESH CHS</h2>
 
         <p>
             Located in the heart of Kandivali West, OM SHREE GANESH CHS is a
@@ -698,11 +746,8 @@ nav ul li a.active{
         <div class="project-details">
 
             <div class="detail">
-
                 <h4>LOCATION</h4>
-
                 <p>Kandivali West</p>
-
             </div>
 
         </div>
@@ -711,8 +756,29 @@ nav ul li a.active{
 
 </section>
 
-<!-- FOOTER -->
+<script>
 
+const observer = new IntersectionObserver((entries)=>{
+
+    entries.forEach((entry)=>{
+
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
+
+    });
+
+},{
+    threshold:0.15
+});
+
+document.querySelectorAll(".fade-up").forEach((el)=>{
+    observer.observe(el);
+});
+
+
+
+</script>
 <section class="footer-cta">
 
     <div class="footer-cta-content">
@@ -733,7 +799,7 @@ nav ul li a.active{
                 Home
             </a>
 
-            <a href="about.html" class="nav-btn">
+            <a href="about.html" class=" nav-btn">
                 About
             </a>
 
@@ -748,50 +814,21 @@ nav ul li a.active{
         </div>
 
     </div>
-
+    
 </section>
-
-<!-- JAVASCRIPT -->
-
 <script>
 
-/* ANIMATION */
-
-const observer = new IntersectionObserver((entries)=>{
-
-    entries.forEach((entry)=>{
-
-        if(entry.isIntersecting){
-
-            entry.target.classList.add("show");
-
-        }
-
-    });
-
-},{
-    threshold:0.15
-});
-
-document.querySelectorAll(".fade-up").forEach((el)=>{
-
-    observer.observe(el);
-
-});
-
-/* MOBILE MENU */
-
 const hamburger = document.getElementById("hamburger");
-const navMenu = document.getElementById("nav-menu");
-const overlay = document.getElementById("menu-overlay");
+const mobileMenu = document.getElementById("mobileMenu");
+const menuOverlay = document.getElementById("menuOverlay");
 
-hamburger.addEventListener("click",()=>{
+hamburger.addEventListener("click", () => {
 
     hamburger.classList.toggle("active");
 
-    navMenu.classList.toggle("active");
+    mobileMenu.classList.toggle("active");
 
-    overlay.classList.toggle("active");
+    menuOverlay.classList.toggle("active");
 
 });
 
@@ -799,17 +836,17 @@ function closeMenu(){
 
     hamburger.classList.remove("active");
 
-    navMenu.classList.remove("active");
+    mobileMenu.classList.remove("active");
 
-    overlay.classList.remove("active");
+    menuOverlay.classList.remove("active");
 
 }
 
-overlay.addEventListener("click",closeMenu);
+menuOverlay.addEventListener("click", closeMenu);
 
-document.querySelectorAll("#nav-menu a").forEach(link=>{
+document.querySelectorAll("#mobileMenu a").forEach(link => {
 
-    link.addEventListener("click",closeMenu);
+    link.addEventListener("click", closeMenu);
 
 });
 

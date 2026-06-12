@@ -463,26 +463,48 @@ body{
 
 @media(max-width:768px){
 
-    #navbar{
-    position:fixed;
+    .footer-cta{
+        padding:35px 20px;
+    }
 
-    top:0;
-    left:0;
-    right:0;
+    .footer-cta-content{
+        flex-direction:column;
+        align-items:flex-start;
+    }
 
-    width:100%;
-    height:65px;
+    .footer-left span{
+        font-size:13px;
+        letter-spacing:4px;
+    }
 
-    padding:0 18px;
+    .footer-left h2{
+        font-size:1.75rem;
+        line-height:1.15;
+        margin-bottom:20px;
+    }
 
-    background:rgba(255,255,255,.15);
-    box-shadow:0 8px 25px rgba(0,0,0,.12);
-    backdrop-filter:blur(20px);
-    -webkit-backdrop-filter:blur(20px);
+    .footer-right{
+        width:100%;
+        display:flex;
+        flex-direction:column;
+        gap:10px;
+    }
 
-    border-bottom:1px solid rgba(255,255,255,.25);
+    .nav-btn{
+        width:100%;
+        height:56px;
 
-    z-index:9999;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+
+        padding:0;
+
+        font-size:16px;
+        font-weight:500;
+
+        border-radius:35px;
+    }
 }
 
     #navbar::before{
@@ -566,8 +588,8 @@ body{
     .contact-map{
         height:250px;
     }
-    .footer-cta{
-    padding:60px 20px;
+.footer-cta{
+    padding:30px 20px;
 }
 
 .footer-cta-content{
@@ -592,7 +614,6 @@ body{
     padding:22px 20px;
     font-size:18px;
     border-radius:50px;
-}
 }
 
 </style>

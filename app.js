@@ -274,3 +274,15 @@ window.addEventListener("scroll", () => {
     }
 
 });
+
+window.addEventListener("load", () => {
+
+    setTimeout(() => {
+
+        document.getElementById("loader")
+
+                .classList.add("loader-hide");
+
+    }, 2200);
+
+});

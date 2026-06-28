@@ -353,7 +353,18 @@ body{
 .email-box:hover{
     transform:translateY(-5px);
 }
+.contact-link{
+    text-decoration:none;
+    color:inherit;
+    font-weight:800;
+    font-size:28px;
+    transition:.3s;
+    cursor:pointer;
+}
 
+.contact-link:hover{
+    color:#caa86a;
+}
 /* ==========================
    FOOTER CTA
 ========================== */
@@ -598,9 +609,9 @@ body{
     }
 
     .email-box{
-        font-size:18px;
-        padding:25px;
-    }
+    font-size:28px;
+    padding:25px;
+}
 }
 .contact-map{
     width:100%;
@@ -635,6 +646,18 @@ body{
 #navbar{
     position:fixed;
     z-index:10000;
+}
+/* Mobile */
+@media (max-width:768px){
+
+    .phone-card .contact-link{
+        font-size:28px;
+    }
+
+    .email-box .contact-link{
+        font-size:28px;
+    }
+
 }
 </style>
 </head>
@@ -709,18 +732,24 @@ body{
             <h2>Visit Our Office</h2>
 
             <p>
-                OM SHREE GANESH CHS.<br>
-                Kandivali West,<br>
-                Mumbai, Maharashtra.
-            </p>
+    Flat No. 7B,<br>
+    Carter Road No. 3,<br>
+    Borivali (East),<br>
+    Near Amba Mata Mandir,<br>
+    Mumbai - 400066
+</p>
 
         </div>
 
-       <div class="contact-map">
+<div class="contact-map">
     <iframe
-        src="https://maps.google.com/maps?q=Kandivali%20West%20Mumbai&t=&z=15&ie=UTF8&iwloc=&output=embed"
+        width="100%"
+        height="300"
+        style="border:0;"
         loading="lazy"
-        allowfullscreen>
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=19.224992089055434,72.86093643978535&hl=en&z=20&output=embed">
     </iframe>
 </div>
 
@@ -743,13 +772,13 @@ body{
 
     <div class="phone-single">
 
-        <div class="phone-card">
+<div class="phone-card">
 
-            <p>
-                +91 98765 43210
-            </p>
+    <a href="tel:+919821405631" class="contact-link">
+        +91 98214 05631
+    </a>
 
-        </div>
+</div>
 
     </div>
 
@@ -764,11 +793,11 @@ body{
 
     <h2>Write To Us</h2>
 
-    <div class="email-box">
-
-        info@valaprojects.com
-
-    </div>
+<div class="email-box">
+    <a href="mailto:Info@valaprojects.vip" class="contact-link">
+        Info@valaprojects.vip
+    </a>
+</div>
 
 </section>
 
